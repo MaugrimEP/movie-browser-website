@@ -209,19 +209,17 @@ class BD
 		 set_time_limit(0);
  		try
  		{
-			$newId = $this->generateCode('films','code_film');
 			$stmt=$this->fdb->prepare($exe);
-			$stmt->bindParam(':code_f',$newId);
+			$stmt->bindParam(':code_f',$this->generateMovieCode('films','code_film'));
 			$stmt->bindParam(':to',$to);
 			$stmt->bindParam(':tf',$tt);
 			$stmt->bindParam(':pays',$pays);
 			$stmt->bindParam(':d',$date);
 			$stmt->bindParam(':duree',$duree);
 			$stmt->bindParam(':couleur',$couleur);
-			$stmt->bindParam(':realisateur',$realisateur);
+			$stmt->bindParam(':realisateur',$realiseur);
 			$stmt->bindParam(':image',$image);
 			$stmt->execute();
-			return $newId;
  		}
  		catch(PDOException $e)
  		{
