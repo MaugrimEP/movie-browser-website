@@ -1,15 +1,42 @@
-<?php 
+<?php
 include_once('BD.class.php');
+require_once('DataDB.php');
 
 $bd=new BD();
-$bd->creationFilms();
+$bd->creationTable($dropFilms,$creationFilms,$valuesFilms);
+$bd->creationTable($dropActeurs,$creationActeurs,$valuesActeurs);
+$bd->creationTable($dropClassification,$creationClassification,$valuesClassification);
+$bd->creationTable($dropGenres,$creationGenres,$valuesGenres);
+$bd->creationTable($dropIndividus,$creationIndividus,$valuesIndividus);
 
-$result = $bd->fdb->query('SELECT * from FILMS order by code_film');
-foreach($result as $m)
+$requet=$bd->fdb->query("select * from Acteurs");
+foreach($requet as $r)
 {
-	echo "<br/>\n".$m['code_film']." ".$m['titre_original'];
+	echo $r['ref_code_film'].' '. $r['ref_code_acteur']."<br>";
 }
 
+$requet=$bd->fdb->query("select * from Films");
+foreach($requet as $r)
+{
+	echo $r['code_film'].' '. $r['titre_original']."<br>";
+}
 
+$requet=$bd->fdb->query("select * from Classification");
+foreach($requet as $r)
+{
+	echo $r['ref_code_film'].' '. $r['ref_code_genre']."<br>";
+}
+
+$requet=$bd->fdb->query("select * from Genres");
+foreach($requet as $r)
+{
+	echo $r['code_genre'].' '. $r['nom_genre']."<br>";
+}
+
+$requet=$bd->fdb->query("select * from Individus");
+foreach($requet as $r)
+{
+	echo $r['code_indiv'].' '. $r['nom']."<br>";
+}
 
 ?>
