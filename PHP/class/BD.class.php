@@ -202,15 +202,6 @@ class BD
 			echo $e->getMessage();
 		}
 	}
-	
-	public function createMovie(){
-	}
-	
-	public function generateMovieCode(){
-	}
-	
-	public function addActor(){
-	}
 
 	public function getGenres()
 	{
@@ -226,44 +217,16 @@ class BD
 		}
 	}
 
-	public function getFilmsByActeur($idActeur)
-	{
-		$q="select titre_original, titre_francais
-		from Films inner join Acteurs on (Films.code_film=Acteurs.ref_code_film)
-		where ref_code_acteur=?";
-		try
-		{
-			$stmt=$this->fdb->prepare($q);
-			$stmt->execute(array($idActeur));
-			return $stmt;
-		}
-		catch(PDOException $e)
-		{
-			echo $e->getMessage();
-		}
-	}
-
-	public function getActeurs()
+	public function getGenresbyFilms($idF)
 	{
 		set_time_limit(0);
-		try
-		{
-			$res=$this->fdb->query("select distinct ref_code_acteur,nom,prenom from acteurs inner join Individus on (acteurs.ref_code_acteur=individus.code_indiv) order by nom,prenom");
-			return $res;
-		}
-		catch(PDOException $e)
-		{
-			echo $e->getMessage();
-		}
-	}
-
-	public function getInfoActeur($a)
-	{
-		$q="select * from individus where code_indiv=?";
+		$q="select distinct nom_genre
+				from Films inner join Classification on (Films.code_film=Classification.ref_code_film) inner join Genres on (Classification.ref_code_genre=Genres.code_genre)
+				where code_film=?";
 		try
 		{
 			$stmt=$this->fdb->prepare($q);
-			$stmt->execute(array($a));
+			$stmt->execute(array($idF));
 			return $stmt;
 		}
 		catch(PDOException $e)
@@ -271,6 +234,6 @@ class BD
 			echo $e->getMessage();
 		}
 	}
-
+	
 }
 ?>

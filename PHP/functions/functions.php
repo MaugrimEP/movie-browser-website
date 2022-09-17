@@ -1,6 +1,10 @@
 <?
-require_once('../data/require_once.php');
-
+require_once('../class/inputs/Text.class.php');
+require_once('../class/inputs/CheckBox.class.php');
+require_once('../class/inputs/Radio.class.php');
+require_once('../class/inputs/Range.class.php');
+require_once('../class/inputs/Select.class.php');
+require_once('../functions/functions.php');
 
 function displayFast($res)
 {
@@ -79,24 +83,17 @@ function displayActeurs($res)
   echo "</ul>";
 }
 
-function ActeursRowType2Array($rows)
+function displayGenres($res)
 {
-  $res=array();
-  foreach($rows as $a)
+  echo "<h3>Liste des Genres :</h3>\n";
+  echo "<ul>";
+  foreach($res as $g)
   {
-    $res[]=$a['nom']." ".$a['prenom'];
+    echo "<li>";
+    echo "$g[nom_genre] <br>";
+    echo "</li>\n";
   }
-  return $res;
-}
-
-function ActeursRowType2ArrayID($rows)
-{
-  $res=array();
-  foreach($rows as $a)
-  {
-    $res[]=$a['ref_code_acteur'];
-  }
-  return $res;
+  echo "</ul>";
 }
 
 ?>

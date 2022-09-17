@@ -2,6 +2,7 @@
 require_once('../data/require_once.php');
 $db=new BD($pathToDBFromUserInterface);
 $acteurs=$db->getActeurbyFilms($_GET['idFilm']);
+$genres=$db->getGenresbyFilms($_GET['idFilm']);
 // variable $_GET[idFilm]
 	function creationPageFilm($code_f)
 	{
@@ -54,7 +55,8 @@ $acteurs=$db->getActeurbyFilms($_GET['idFilm']);
   <header><?php headerShow();?></header>
   <article>
 	<?creationPageFilm($_GET['idFilm']);
-	displayActeurs($acteurs);?>
+	displayActeurs($acteurs);
+	displayGenres($genres);?>
   </article>
 </body>
 </html>
