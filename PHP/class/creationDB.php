@@ -1,6 +1,6 @@
 <?php
 include_once('BD.class.php');
-require_once('DataDB.php');
+require_once('../data/DataDB.php');
 
 $bd=new BD();
 $bd->creationTable($dropFilms,$creationFilms,$valuesFilms);
