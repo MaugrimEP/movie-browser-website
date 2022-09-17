@@ -124,7 +124,7 @@ class BD
 		set_time_limit(0);
 		try
 		{
-			$r=$this->fdb->query("select distinct pays from Films order by pays");
+			$r=$this->fdb->query("select distinct pays from Films order by pays DESC");
 			return $r;
 		}
 		catch(PDOException $e)
