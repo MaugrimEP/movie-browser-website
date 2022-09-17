@@ -41,26 +41,6 @@ class BD
 		}
 	}
 
-	public function getFastSearchStmt($key)
-	{
-		try
-		{
-			$research="select *
-			from Films
-			where titre_original like '%$key%' or titre_francais like '%:key%'";
-			$stmt = $this->fdb->prepare($research);
-
-			$stmt->bindParam(':key',$key);
-
-			$re=$stmt->execute();
-			return $re;
-		}
-		catch (PDOException $e)
-		{
-			echo $e->getMessage();
-		}
-	}
-
 	public function getFastSearch($key)
 	{
 		try
