@@ -8,7 +8,7 @@ require_once('../functions/functions.php');
 
 function displayFast($res)
 {
-  echo "<table class='pure-table'>>\n";
+  echo "<table class='pure-table'>\n";
   echo "<thread><tr><th> Titre original </th> <th> Titre francais </th> <th> Date </th> <th> Durée </th> <th>nom Réalisateur </td><th> prénom Realisateur </th> <th> Pays </th></tr></thread>\n";
   foreach($res as $r)
   {

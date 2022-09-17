@@ -11,7 +11,7 @@ $acteurs=$db->getActeurbyFilms($_GET['idFilm']);
 			echo "<h2> $film[titre_francais]</h2>\n";
 			echo "<h3>($film[titre_original]) </h3>\n";
 			echo '<img src="../data/Image/test.jpg" alt="'.$film['titre_original'].'"/><br>';
-			echo "<table class='pure-table'>>
+			echo "<table class='pure-table'>
 					<thread><tr>
 						<td> Titre Original </td>
 						<td> $film[titre_original]</td>
