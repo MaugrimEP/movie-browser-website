@@ -30,7 +30,7 @@ if (isset($_GET['deleting']))
 
   $res=$db->advancedSearch($titre_original,$titre_francais,$pays,$nomR,$prenomR,$duree,$genres);
   echo "<table class='pure-table'>\n";
-  echo "<thread><tr><th> Titre original </th> <th> Titre francais </th> <th> Date </th> <th> Durée </th> <th>nom Réalisateur </th><th> prénom Realisateur </th> <th> Pays </th></tr></thread>\n";
+  echo "<tr><th> Titre original </th> <th> Titre francais </th> <th> Date </th> <th> Durée </th> <th>nom Réalisateur </th><th> prénom Realisateur </th> <th> Pays </th></tr>\n";
   foreach($res as $r)
   {
     echo "<tr>\n";

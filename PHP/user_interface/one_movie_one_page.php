@@ -13,34 +13,34 @@ $genres=$db->getGenresbyFilms($_GET['idFilm']);
 			echo "<h3>($film[titre_original]) </h3>\n";
 			echo '<img src="../data/Image/test.jpg" alt="'.$film['titre_original'].'"/><br>';
 			echo "<table class='pure-table'>
-					<thread><tr>
+					<tr>
 						<td> Titre Original </td>
 						<td> $film[titre_original]</td>
-					</tr></thread>
-					<thread><tr>
+					</tr>
+					<tr>
 						<td> Titre Français </td>
 						<td> $film[titre_francais] </td>
-					</tr></thread>
-					<thread><tr>
+					</tr>
+					<tr>
 						<td> Origine </td>
 						<td> $film[pays]</td>
-					</tr></thread>
-					<thread><tr>
+					</tr>
+					<tr>
 						<td> Date de Sortie </td>
 						<td> $film[date]</td>
-					</tr></thread>
-					<thread><tr>
+					</tr>
+					<tr>
 						<td> Durée du film </td>
 						<td> $film[duree] </td>
-					</tr></thread>
-					<thread><tr>
+					</tr>
+					<tr>
 						<td> Type d'image </td>
 						<td> $film[couleur]</td>
-					</tr></thread>
-					<thread><tr>
+					</tr>
+					<tr>
 						<td> Réalisateur </td>
 						<td> $film[nom] $film[prenom]</td>
-					</tr></thread>
+					</tr>
 				</table>";
 	}
 ?>
