@@ -70,4 +70,17 @@ function simpleArray2String($a)
   }
 }
 
+function displayActeurs($res)
+{
+  echo "<h3>Liste des Acteurs :</h3>\n";
+  echo "<ul>";
+  foreach($res as $a)
+  {
+    echo "<li>";
+    echo "$a[nom] $a[prenom]<br>";
+    echo "</li>\n";
+  }
+  echo "</ul>";
+}
+
 ?>

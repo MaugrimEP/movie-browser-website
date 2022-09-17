@@ -1,6 +1,9 @@
 <?php
 require_once('../class/BD.class.php');
+require_once('../functions/functions.php');
 require_once('header.php');
+$db=new BD('../class/base_stock/database');
+$acteurs=$db->getActeurbyFilms($_GET['idFilm']);
 // variable $_GET[idFilm]
 	function creationPageFilm($code_f)
 	{
@@ -51,7 +54,8 @@ require_once('header.php');
 <body>
   <header><?php headerShow();?></header>
   <article>
-	<?creationPageFilm($_GET['idFilm']);?>
+	<?creationPageFilm($_GET['idFilm']);
+	displayActeurs($acteurs);?>
   </article>
 </body>
 </html>
