@@ -1,4 +1,11 @@
 <?
+require_once('../class/inputs/Text.class.php');
+require_once('../class/inputs/CheckBox.class.php');
+require_once('../class/inputs/Radio.class.php');
+require_once('../class/inputs/Range.class.php');
+require_once('../class/inputs/Select.class.php');
+require_once('../functions/functions.php');
+
 function displayFast($res)
 {
   echo "<table>\n";
@@ -35,6 +42,24 @@ function displayHome($res)
     echo "</tr>\n";
   }
   echo "</table>\n";
+}
+
+function paysRows2Array($rows)
+{
+  $res=array();
+  foreach($rows as $r)
+  {
+    $res[] = $r['pays'];
+  }
+  return $res;
+}
+
+function displayInputs($I)
+{
+  foreach($I as $e)
+  {
+    $e->affiche();
+  }
 }
 
 ?>

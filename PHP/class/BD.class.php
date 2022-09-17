@@ -132,5 +132,36 @@ class BD
 			echo $e->getMessage();
 		}
 	}
+
+	public function getPays()
+	{
+		set_time_limit(0);
+		try
+		{
+			$r=$this->fdb->query("select distinct pays from Films order by pays");
+			return $r;
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+	}
+	public function dureeMax()
+	{
+		set_time_limit(0);
+		try
+		{
+			$r=$this->fdb->query("select max(duree) from Films");
+			foreach($r as $rs)
+			{
+				return $rs['max(duree)'];
+			}
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+	}
+
 }
 ?>
