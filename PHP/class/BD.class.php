@@ -203,10 +203,39 @@ class BD
 		}
 	}
 
-	public function createMovie(){
+	public function createMovie($to,$tf,$pays,$date,$duree,$couleur,$realisateur,$image){
+		$exe="INSERT INTO `films` (`code_film`, `titre_original`, `titre_francais`, `pays`, `date`, `duree`, `couleur`, `realisateur`, `image`)
+		 VALUES :code_f,:to,:tf,:pays,:d,:duree,:couleur,:realisateur,:image)";
+		 set_time_limit(0);
+ 		try
+ 		{
+			$stmt=$this->fdb->prepare($exe);
+			$stmt=->bindParam(':code_f',$this->generateMovieCode());
+			$stmt=->bindParam(':to',$to);
+			$stmt=->bindParam(':tf',$tt);
+			$stmt=->bindParam(':pays',$pays);
+			$stmt=->bindParam(':d',$date);
+			$stmt=->bindParam(':duree',$duree);
+			$stmt=->bindParam(':couleur',$couleur);
+			$stmt=->bindParam(':realisateur',$realiseur);
+			$stmt=->bindParam(':image',$image);
+			$stmt->execute();
+ 		}
+ 		catch(PDOException $e)
+ 		{
+ 			echo $e->getMessage();
+ 		}
+
 	}
 
 	public function generateMovieCode(){
+		try {
+			$res=$this->fdb->exec("select max(code_film) as max from films");
+			$res=BD::getAttributFromSimpleRow($res);
+			return $res['max']+1;
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
 	}
 
 	public function addActor(){
