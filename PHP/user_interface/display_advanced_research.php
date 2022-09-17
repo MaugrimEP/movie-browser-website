@@ -46,7 +46,7 @@ if (isset($_GET['deleting']))
 				</div>
 			</a>
 			<div class = 'modif_delete'>
-				<a href='add_update.php?idFilm=$r[code_film]&action=update'><div class = 'button_modify'></div></a>
+				<a href='add_update.php?idFilm=$r[code_film]&action=update&titreo=$r[titre_original]&titref=$r[titre_francais]&pays=$r[pays]&nomR=$r[nom]&prenomR=$r[prenom]&duree=$r[duree]&date=$r[date]'><div class = 'button_modify'></div></a>
 				<form id = 'form_delete' method='GET' action='display_advanced_research.php'>
 					<input type='hidden' name='idFilm' value='$r[code_film]'/>
 					<input type='hidden' name='deleting' value='true'/>

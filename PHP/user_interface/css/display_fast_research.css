@@ -81,7 +81,7 @@ hr{
 }
 
 .button_modify{
-	background-color : #5B5B5B;
+  background-color : #5B5B5B;
   background-image : url(./images/modification.png);
   background-size: 23px 23px;
   background-position: center;
@@ -93,7 +93,10 @@ hr{
   height : 2.5em;
   width : 2.5em;
   transition : all 0.2s;
-	margin-right: 1em;
+}
+
+.modif_delete a{
+  margin-right: 1em;
 }
 
 .button_delete{

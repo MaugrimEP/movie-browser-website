@@ -12,9 +12,11 @@ label{
 }
 
 input{
+	margin-left: 0px;
 	margin-right : 1%;
 	display : block;
 	border : none;
+	width : 15%;
 	background-color: white;
 	text-indent: 3%;
 	font-variant: normal;
@@ -42,6 +44,7 @@ hr{
 	text-transform : uppercase;
 	transition : 0.3s;
 	margin-left : 1em;
+	width : 10%;
 }
 
 #submitButton:hover{

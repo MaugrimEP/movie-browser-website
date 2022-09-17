@@ -18,32 +18,41 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 		</header>
 		<?php if ($_GET['action']=="add"){
 			echo "<h1>Ajouter un film</h1>";
+			$nbAct = 1;
 		}
 		else{
 			echo "<h1>Modifier un film</h1>";
+			$nbAct = 1;     /* A modifier en taille de la liste des acteurs */
 		} ?>
 		<hr>
 		<form action='display_fast_research.php'>
 			<fieldset>
-				<div class="case"><label for = "titre_original">Titre Original</label><input required type="text" id = "titre_original" name="titre_original" title="Veuillez saisir le titre original du film ici"></div></br>
-				<div class ="case"><label for = "titre_francais">Titre Français</label><input required type="text" id = "titre_francais" name="titre_francais" title="Veuillez saisir le titre français du film ici"></div></br>
-				<div class ="case"><label for = "origine">Origine</label><input required type="text" id = "origine" name="origine" title="Veuillez saisir le pays d'origine du film ici"></div></br>
+				<div class="case"><label for = "titre_original">Titre Original</label><input required type="text" id = "titre_original" name="titre_original" title="Veuillez saisir le titre original du film ici" value = "<?php if ($_GET['action']=="update"){echo $_GET['titreo'];}?>"></div></br>
+				<div class ="case"><label for = "titre_francais">Titre Français</label><input required type="text" id = "titre_francais" name="titre_francais" title="Veuillez saisir le titre français du film ici" value = "<?php if ($_GET['action']=="update"){echo $_GET['titref'];}?>"></div></br>
+				<div class ="case"><label for = "origine">Origine</label><input required type="text" id = "origine" name="origine" title="Veuillez saisir le pays d'origine du film ici" value = "<?php if ($_GET['action']=="update"){echo $_GET['pays'];}?>"></div></br>
 				<div class="case"><label for = "annee">Année de sortie</label>
 				<select id = "annee" name="annee">
 					<?php
 						$selected = "";
 						for ($i = 1895; $i<date('Y')+5; $i++){
-							if ($i == date('Y')){
-								$selected = 'selected = "selected"';
+							if ($_GET['action']=="add"){
+								if ($i == date('Y')){
+									$selected = 'selected = "selected"';
+								}
+							}
+							else{
+								if ($i == $_GET["date"]){
+									$selected = 'selected = "selected"';
+								}
 							}
 							echo '<option value ="'.$i.'" '.$selected.'>'.$i.'</option>\n';
 							$selected = "";
 						}
 					?>
 				</select></div></br>
-				<div class="case"><label for = "duree">Durée (minutes)</label><input required type="text" id = "duree" name="duree" title="Veuillez saisir la durée du film ici (en minutes)"></div></br>
-				<div class="case"><label for = "prenom_realisateur">Prénom réalisteur</label><input required type="text" id = "prenom_realisateur" name="prenom_realisateur" title="Veuillez saisir le prénom du réalisateur du film ici">
-				<label for = "nom_realisateur">Nom réalisteur</label><input required type="text" id = "nom_realisateur" name="nom_realisateur" title="Veuillez saisir le nom du réalisateur du film ici"></div></br>
+				<div class="case"><label for = "duree">Durée (minutes)</label><input required type="text" id = "duree" name="duree" title="Veuillez saisir la durée du film ici (en minutes)" value = "<?php if ($_GET['action']=="update"){echo $_GET['duree'];}?>"></div></br>
+				<div class="case"><label for = "prenom_realisateur">Prénom réalisteur</label><input required type="text" id = "prenom_realisateur" name="prenom_realisateur" title="Veuillez saisir le prénom du réalisateur du film ici"value = "<?php if ($_GET['action']=="update"){echo $_GET['prenomR'];}?>">
+				<label for = "nom_realisateur">Nom réalisteur</label><input required type="text" id = "nom_realisateur" name="nom_realisateur" title="Veuillez saisir le nom du réalisateur du film ici" value = "<?php if ($_GET['action']=="update"){echo $_GET['nomR'];}?>"></div></br>
 				<div class="case"><label for = "genre">Genre</label>
 				<select id = "genre" name="genre">
 					<?php
@@ -71,7 +80,7 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 			<script type="text/javascript">
 
 			var div = document.getElementById('list_acteurs');
-			var nb_acteurs = 1;
+			var nb_acteurs = <?php echo $nbAct ?>;
 
 			function incrementNbActeurs(){
 				nb_acteurs++;
