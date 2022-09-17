@@ -25,7 +25,7 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 			$nbAct = 1;     /* A modifier en taille de la liste des acteurs */
 		} ?>
 		<hr>
-		<form action='display_fast_research.php'>
+		<form action='redirection_vers_film.php'>
 			<fieldset>
 				<div class="case"><label for = "titre_original">Titre Original</label><input required type="text" id = "titre_original" name="titre_original" title="Veuillez saisir le titre original du film ici" value = "<?php if ($_GET['action']=="update"){echo $_GET['titreo'];}?>"></div></br>
 				<div class ="case"><label for = "titre_francais">Titre Français</label><input required type="text" id = "titre_francais" name="titre_francais" title="Veuillez saisir le titre français du film ici" value = "<?php if ($_GET['action']=="update"){echo $_GET['titref'];}?>"></div></br>
