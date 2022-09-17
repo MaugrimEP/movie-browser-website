@@ -17,10 +17,9 @@ function displayFast($res)
     <td><a href='one_movie_one_page.php?idFilm=$r[code_film]'> $r[titre_francais] </a></td>
     <td> $r[date] </td> <td> $r[duree] </td> <td> $r[nom] $r[prenom]</td>
     <td><a href='add_update.php?idFilm=$r[code_film]&action=update'> Modifier</a> </td>
-    <form method='GET' action='display_research.php'>
+    <form method='GET' action='display_fast_research.php'>
     <td><input type='hidden' name='idFilm' value='$r[code_film]'/>
     <input type='hidden' name='deleting' value='true'/>
-    <input type='hidden' name='typeRecherche' value='$_GET[typeRecherche]'/>
     <input type='hidden' name='keyResearch' value='$_GET[keyResearch]'/>
     <input type='submit' value='Supprimer'> </td>
     </form>\n";

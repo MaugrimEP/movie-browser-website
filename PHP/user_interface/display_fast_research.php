@@ -21,11 +21,9 @@ if (isset($_GET['deleting']))
   <header><?php headerShow();?></header>
   <article>
   <h2>Resultat de la recherche</h2>
-  <?php if($_GET['typeRecherche']=='fast')
-    {
+  <?php
       $res=$co->getFastSearch($_GET['keyResearch']);
       displayFast($res);
-    }
   ?>
   </article>
 </body>

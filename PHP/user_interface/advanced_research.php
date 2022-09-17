@@ -11,14 +11,25 @@ require_once('../class/BD.class.php');
 
 $db=new BD('../class/base_stock/database');
 $Ititre_original=new Text("titre Original: ");
+$Ititre_original->name='titre_O';
+
 $Ititre_francais=new Text("titre francais: ");
+$Ititre_francais->name='titre_F';
+
 //select $description,$descriptionpourChaque,$values
     $arrayDescriptionPays=paysRows2Array($db->getPays());
 $Ipays=new Select("pays",$arrayDescriptionPays,$arrayDescriptionPays);
+$Ipays->name='pays';
+
 $Irealisateur=new Text("realisateur: ");
+$Irealisateur->name='realisateur';
+
 //range ($d,$mi,$ma,$s)
 $Iduree=new Range("durée minimal",0,$db->dureeMax(),1,'minutes');
+$Iduree->name='duree';
+
 $Isubmit=new Submit('rechercher !','GO');
+$Isubmit->name='submit';
 
 $inputs=array(
   $Ititre_original,
@@ -33,7 +44,7 @@ $inputs=array(
 function advandedResearch($inputs)
 {
   ?>
-  <form method='post' action='display_research.php'>
+  <form method='post' action='display_advanced_research.php'>
   <input type='hidden' name='typeRecherche' value='advanced'/>
   <?php displayInputs($inputs); ?>
   </form>
