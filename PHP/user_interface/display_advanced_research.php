@@ -12,6 +12,7 @@ if (isset($_GET['deleting']))
 <head>
   <meta charset="utf-8">
   <title>Recherche Avancée</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
 </head>
 <body>
   <header><?php headerShow();?></header>
@@ -27,8 +28,8 @@ if (isset($_GET['deleting']))
 
 
   $res=$db->advancedSearch($titre_original,$titre_francais,$pays,$nomR,$prenomR,$duree);
-  echo "<table>\n";
-  echo "<tr><th> Titre original </th> <th> Titre francais </th> <th> Date </th> <th> Durée </th> <th>nom Réalisateur </th><th> prénom Realisateur </th> <th> Pays </th></tr>\n";
+  echo "<table class='pure-table'>\n";
+  echo "<thread><tr><th> Titre original </th> <th> Titre francais </th> <th> Date </th> <th> Durée </th> <th>nom Réalisateur </th><th> prénom Realisateur </th> <th> Pays </th></tr></thread>\n";
   foreach($res as $r)
   {
     echo "<tr>\n";

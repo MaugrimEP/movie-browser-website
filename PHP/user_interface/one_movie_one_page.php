@@ -11,39 +11,39 @@ $acteurs=$db->getActeurbyFilms($_GET['idFilm']);
 			echo "<h2> $film[titre_francais]</h2>\n";
 			echo "<h3>($film[titre_original]) </h3>\n";
 			echo '<img src="../data/Image/test.jpg" alt="'.$film['titre_original'].'"/><br>';
-			echo "<table>
-					<tr>
+			echo "<table class='pure-table'>>
+					<thread><tr>
 						<td> Titre Original </td>
 						<td> $film[titre_original]</td>
-					</tr>
-					<tr>
+					</tr></thread>
+					<thread><tr>
 						<td> Titre Français </td>
 						<td> $film[titre_francais] </td>
-					</tr>
-					<tr>
+					</tr></thread>
+					<thread><tr>
 						<td> Origine </td>
 						<td> $film[pays]</td>
-					</tr>
-					<tr>
+					</tr></thread>
+					<thread><tr>
 						<td> Date de Sortie </td>
 						<td> $film[date]</td>
-					</tr>
-					<tr>
+					</tr></thread>
+					<thread><tr>
 						<td> Durée du film </td>
 						<td> $film[duree] </td>
-					</tr>
-					<tr>
+					</tr></thread>
+					<thread><tr>
 						<td> Type d'image </td>
 						<td> $film[couleur]</td>
-					</tr>
-					<tr>
+					</tr></thread>
+					<thread><tr>
 						<td> Réalisateur </td>
 						<td> $film[nom] $film[prenom]</td>
-					</tr>
-					<tr>
+					</tr></thread>
+					<thread><tr>
 						<td> Genre </td>
 						<td> $film[nom_genre]</td>
-					</tr>
+					</tr></thread>
 				</table>";
 	}
 ?>
@@ -52,6 +52,7 @@ $acteurs=$db->getActeurbyFilms($_GET['idFilm']);
 <head>
   <meta charset="utf-8">
   <title>Film</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
 </head>
 <body>
   <header><?php headerShow();?></header>
