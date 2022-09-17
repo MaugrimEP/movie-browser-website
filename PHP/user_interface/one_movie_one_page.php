@@ -3,13 +3,11 @@ require_once('../data/require_once.php');
 $db=new BD($pathToDBFromUserInterface);
 $acteurs=$db->getActeurbyFilms($_GET['idFilm']);
 $genres=$db->getGenresbyFilms($_GET['idFilm']);
+$film=$db->getInfoFilm($_GET['idFilm']);
+$film=BD::getAttributFromSimpleRow($film);
 // variable $_GET[idFilm]
-	function creationPageFilm($code_f)
+	function creationPageFilm($film)
 	{
-		$db=new BD('../class/base_stock/database');
-			$film=$db->getInfoFilm($code_f);
-			$film=BD::getAttributFromSimpleRow($film);
-			
 			echo "<h2> $film[titre_francais]</h2>";
 			echo "<hr>";
 			echo "<section>";
@@ -19,28 +17,28 @@ $genres=$db->getGenresbyFilms($_GET['idFilm']);
 						<div class = 'ligne'>
 							<label>Titre Original : </label> $film[titre_original]
 						</div>
-						
-						<div class = 'ligne'>	
+
+						<div class = 'ligne'>
 							<label>Titre Français : </label> $film[titre_francais]
 						</div>
-						
-						<div class = 'ligne'>	
+
+						<div class = 'ligne'>
 							<label>Origine : </label> $film[pays]
 						</div>
-						
-						<div class = 'ligne'>	
+
+						<div class = 'ligne'>
 							<label>Date de Sortie : </label> $film[date]
 						</div>
-						
-						<div class = 'ligne'>	
+
+						<div class = 'ligne'>
 							<label>Durée du film : </label> $film[duree]
 						</div>
-						
-						<div class = 'ligne'>	
+
+						<div class = 'ligne'>
 							<label>Type d'image : </label> $film[couleur]
 						</div>
-						
-						<div class = 'ligne'>	
+
+						<div class = 'ligne'>
 							<label>Réalisateur : </label>
 							<a class = 'lien_individu' href='display_films_by_realisateur.php?realisateur[]=$film[realisateur]'>  $film[nom] $film[prenom]</a>
 						</div>
@@ -53,11 +51,11 @@ $genres=$db->getGenresbyFilms($_GET['idFilm']);
 	<link rel="stylesheet" href="./css/header.css"/>
 	<link rel="stylesheet" href="./css/one_movie_one_page.css"/>
   <meta charset="utf-8">
-  <title>Film</title>
+  <title><?php echo $film['titre_original'];?></title>
 </head>
 <body>
   <header><?php headerShow();?></header>
-	<?creationPageFilm($_GET['idFilm']);
+	<?creationPageFilm($film);
 	displayActeurs($acteurs);
 	displayGenres($genres);?>
 	</div>
@@ -65,4 +63,3 @@ $genres=$db->getGenresbyFilms($_GET['idFilm']);
   <?php importJavascriptShow() ?>
 </body>
 </html>
-
