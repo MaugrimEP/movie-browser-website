@@ -1,0 +1,5 @@
+le fichier pour regénérer la database est :
+PHP_Film/PHP/class/creationDB.php
+
+le home est ici :
+PHP_Film/PHP/user_interface/home.php
