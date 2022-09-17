@@ -241,12 +241,23 @@ class BD
 		}
 	}
 
-	public function addActor($nom,$prenom){
-		$add="insert into individus(code_indiv,nom,prenom) values (:code,:nom,:prenom)";
+	public function addActor($nom,$prenom,$idFilm){
+		$addIndividus="insert into individus(code_indiv,nom,prenom) values (:code,:nom,:prenom)";
+		$num=$this->generateCode('individus','code_indiv');
+		$addActeurs="insert into acteurs(ref_code_film,ref_code_acteur) values (:idF,:num)";
 		set_time_limit(0);
 		try
 		{
-			$stmt=$this->fdb->prepare($add);
+			$stmt=$this->fdb->prepare($addIndividus);
+			$stmt->bindParam(':code',$num);
+			$stmt->bindParam(':nom',$nom);
+			$stmt->bindParam(':prenom',$prenom);
+			$stmt->execute();
+
+			$stmt2=$this->fdb->prepare($addActeurs);
+			$stmt2->bindParam(':num',$num);
+			$stmt2->bindParam(':idF',$idFilm);
+			$stmt2->execute();
 
 		}
 		catch(PDOException $e)
