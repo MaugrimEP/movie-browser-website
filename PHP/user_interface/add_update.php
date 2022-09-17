@@ -2,7 +2,8 @@
 variable par méthode GET : [idFilm=l'id du film] et action = <add|update> require_once('header.php')
 -->
 
-<?php require_once('../data/require_once.php'); ?>
+<?php require_once("../data/require_once.php");
+$co = new BD($pathToDBFromUserInterface); ?>
 
 <!doctype html>
 <html lang="fr">
@@ -10,6 +11,7 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="./css/add_update.css"/>
 		<link rel="stylesheet" href="./css/header.css"/>
+		<script type="text/javascript" src="./javascript/header.js"></script>
 		<title>Ajout d'un film</title>
 	</head>
 	<body>
@@ -57,9 +59,10 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 				<select id = "genre" name="genre">
 					<?php
 						$arrayDescriptionGenres=Rows2Array($co->getGenres(),'nom_genre');
+						$arrayIdGenres=Rows2Array($co->getGenres(),'code_genre');
 						
-						foreach ($arrayDescriptionGenres as $genre){
-							echo '<option value ="'.$genre.'">'.$genre.'</option>\n';
+						for ($i = 0; $i<count($arrayDescriptionGenres); $i++){
+							echo '<option value ="'.$arrayIdGenres[$i].'">'.$arrayDescriptionGenres[$i].'</option>\n';
 						}
 					?>
 				</select></div></br>
@@ -76,9 +79,8 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 				<hr>
 				<input type='submit' id = "submitButton" value='Valider'>
 			</fieldset>
-
-			<script type="text/javascript">
-
+		</form>
+		<script type="text/javascript">
 			var div = document.getElementById('list_acteurs');
 			var nb_acteurs = <?php echo $nbAct ?>;
 
@@ -123,8 +125,7 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 				ajouterLigneActeur("acteurs[]");
 				div.appendChild(document.createElement("br"));
 			}
-
-			</script>
-		</form>
+		</script>
+		<?php importJavascriptShow() ?>
 	</body>
 </html>

@@ -5,7 +5,7 @@ $acteurs=$db->getActeurbyFilms($_GET['idFilm']);
 $genres=$db->getGenresbyFilms($_GET['idFilm']);
 $film=$db->getInfoFilm($_GET['idFilm']);
 $film=BD::getAttributFromSimpleRow($film);
-// variable $_GET[idFilm]
+var_dump($film);
 	function creationPageFilm($film)
 	{
 			echo "<h2> $film[titre_francais]</h2>";
