@@ -1,5 +1,5 @@
 <?php
-//variable par méthode GET : [idFilm=l'id du film] et action = <add|update>
+//variable par méthode POST : [idFilm=l'id du film]
 require_once('header.php');
 phpinfo();
 ?>

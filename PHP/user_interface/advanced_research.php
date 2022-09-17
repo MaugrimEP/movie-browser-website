@@ -45,7 +45,6 @@ function advandedResearch($inputs)
 {
   ?>
   <form method='post' action='display_advanced_research.php'>
-  <input type='hidden' name='typeRecherche' value='advanced'/>
   <?php displayInputs($inputs); ?>
   </form>
 <?php
