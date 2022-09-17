@@ -30,11 +30,13 @@ $inputs=array(
 );
 
 
-function advandedResearch()
+function advandedResearch($inputs)
 {
   ?>
   <form method='post' action='display_research.php'>
   <input type='hidden' name='typeRecherche' value='advanced'/>
+  <?php displayInputs($inputs); ?>
+  </form>
 <?php
 
 }
@@ -50,7 +52,7 @@ function advandedResearch()
   <header><?php headerShow(); ?></header>
   <article>
   <h2>Recherche Avancée</h2>
-  <?php displayInputs($inputs); ?>
+  <?php  advandedResearch($inputs) ?>
   </article>
 </body>
 </html>

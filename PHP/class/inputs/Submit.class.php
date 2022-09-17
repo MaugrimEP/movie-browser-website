@@ -14,7 +14,5 @@ class Submit extends Question
 		echo "$this->description <br><input type=\"$this->type\" name=\"$this->name[]\" value=\"$this->value\"><br>\n" ;
 		echo "\n";
 	}
-
 }
-
 ?>
