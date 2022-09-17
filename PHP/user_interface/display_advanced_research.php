@@ -1,9 +1,7 @@
 <?php
 //variable par méthode POST : [idFilm=l'id du film]
-require_once('header.php');
-require_once('../functions/functions.php');
-require_once('../class/BD.class.php');
-$db=new BD('../class/base_stock/database');
+require_once('../data/require_once.php');
+$db=new BD($pathToDBFromUserInterface);
 if (isset($_GET['deleting']))
 {
   $db->deleteFilmStatm($_GET['idFilm']);

@@ -1,15 +1,7 @@
 <?php
-require_once('header.php');
-require_once('../class/inputs/Text.class.php');
-require_once('../class/inputs/CheckBox.class.php');
-require_once('../class/inputs/Radio.class.php');
-require_once('../class/inputs/Range.class.php');
-require_once('../class/inputs/Select.class.php');
-require_once('../class/inputs/Submit.class.php');
-require_once('../functions/functions.php');
-require_once('../class/BD.class.php');
+require_once('../data/require_once.php');
 
-$db=new BD('../class/base_stock/database');
+$db=new BD($pathToDBFromUserInterface);
 $Ititre_original=new Text("titre Original: ");
 $Ititre_original->name='titre_O';
 

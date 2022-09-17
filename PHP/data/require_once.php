@@ -1,0 +1,12 @@
+<?php
+require_once('../user_interface/header.php');
+require_once('../class/inputs/Text.class.php');
+require_once('../class/inputs/CheckBox.class.php');
+require_once('../class/inputs/Radio.class.php');
+require_once('../class/inputs/Range.class.php');
+require_once('../class/inputs/Select.class.php');
+require_once('../class/inputs/Submit.class.php');
+require_once('../functions/functions.php');
+require_once('../class/BD.class.php');
+$pathToDBFromUserInterface="../class/base_stock/database";
+?>
