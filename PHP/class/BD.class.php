@@ -203,13 +203,14 @@ class BD
 		}
 	}
 
-	public function createMovie($to,$tf,$pays,$date,$duree,$couleur,$realisateur,$image){
+	public function createMovie($to,$tf,$pays,$date,$duree,$couleur,$realisateur,$image,$code_genre){
 		$exe="INSERT INTO films (code_film,titre_original,titre_francais,pays, date, duree, couleur, realisateur, image)
 		 VALUES (:code_f,:to,:tf,:pays,:d,:duree,:couleur,:realisateur,:image)";
 		 set_time_limit(0);
  		try
  		{
 			$newId = $this->generateCode('films','code_film');
+			$this->fdb->execute("insert into classification (ref_code_film,ref_code_genre) values ($newId,$code_genre)");
 			$stmt=$this->fdb->prepare($exe);
 			$stmt->bindParam(':code_f',$newId);
 			$stmt->bindParam(':to',$to);
@@ -271,7 +272,7 @@ class BD
 		set_time_limit(0);
 		try
 		{
-			$res=$this->fdb->query("select distinct nom_genre from genres order by nom_genre DESC");
+			$res=$this->fdb->query("select distinct * from genres order by nom_genre DESC");
 			return $res;
 		}
 		catch(PDOException $e)
