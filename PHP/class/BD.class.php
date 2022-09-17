@@ -362,5 +362,39 @@ class BD
 				echo $e->getMessage();
 			}
 	}
+
+	public function findOrCreateRealisteur($nom,$prenom)
+	{
+		$q="select *
+		from films inner join individus on (films.realisateur=individus.code_indiv)
+		where nom=:nom and prenom=:prenom";
+		try
+		{
+			$stmt=$this->fdb->prepare($q);
+			$stmt->bindParam(':nom',$nom);
+			$stmt->bindParam(':prenom',$prenom);
+			$stmt->execute();
+			if (sqlite_num_rows($stmt)==0)
+			{
+				$insertion="insert into Individus(code_indiv,nom,prenom) values (:id,:nom,:prenom)";
+				$stmtInsertion=$this->prepare($insertion);
+				$id=$this->fdb->generateCode('individus','code_indiv');
+				$stmtInsertion->bindParam(':id',$id);
+				$stmtInsertion->bindParam(':nom',$nom);
+				$stmtInsertion->bindParam(':prenom',$prenom);
+				$stmtInsertion->execute();
+				return $id;
+			}
+			else
+			{
+				$stmt=BD::getAttributFromSimpleRow($stmt);
+				return $stmt['code_indiv'];
+			}
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+	}
 }
 ?>
