@@ -3,6 +3,7 @@ fieldset{
 }
 .case{
 	display : flex;
+	color : #424242;
 }
 
 label{
@@ -12,6 +13,7 @@ label{
 }
 
 input{
+	margin-left : 0px;
 	margin-right : 1%;
 	display : block;
 	border : none;

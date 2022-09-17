@@ -203,7 +203,7 @@ class BD
 		}
 	}
 
-	public function createMovie($to,$tf,$pays,$date,$duree,$couleur,$nom, $prenom,$image,$code_genre){
+	public function createMovie($to, $tf, $pays, $date, $duree, $couleur, $nom, $prenom, $image, $code_genre, $list_acteurs){
 		$exe="INSERT INTO films (code_film,titre_original,titre_francais,pays, date, duree, couleur, realisateur, image)
 		 VALUES (:code_f,:to,:tf,:pays,:d,:duree,:couleur,:realisateur,:image)";
 		 set_time_limit(0);
@@ -222,6 +222,10 @@ class BD
 			$stmt->bindParam(':realisateur',$this->findOrCreateRealisteur($nom,$prenom));
 			$stmt->bindParam(':image',$image);
 			$stmt->execute();
+			
+			for ($i = 0; $i<count($list_acteurs); $i+=2){
+				$this->findOrCreateActeur($list_acteurs[$i+1], $list_acteurs[$i], $newId);
+			}
 			return $newId;
  		}
  		catch(PDOException $e)
@@ -385,6 +389,7 @@ class BD
 			}
 			else
 			{
+				$stmt->execute();
 				$stmt=BD::getAttributFromSimpleRow($stmt);
 				return $stmt['code_indiv'];
 			}
@@ -394,6 +399,43 @@ class BD
 			echo $e->getMessage();
 		}
 	}
+	
+	public function findOrCreateActeur($nom, $prenom, $idFilm)
+	{
+		$q="select * from individus inner join acteurs on (individus.code_indiv=acteurs.ref_code_acteur)
+		where nom=:nom and prenom=:prenom";
+		try
+		{
+			$stmt=$this->fdb->prepare($q);
+			$stmt->bindParam(':nom',$nom);
+			$stmt->bindParam(':prenom',$prenom);
+			$stmt->execute();
+			if (BD::sqlite_num_rows($stmt)==0)
+			{
+				$insertion="insert into Individus(code_indiv,nom,prenom) values (:id,:nom,:prenom)";
+				$stmtInsertion=$this->fdb->prepare($insertion);
+				$id=$this->generateCode('individus','code_indiv');
+				$stmtInsertion->bindParam(':id',$id);
+				$stmtInsertion->bindParam(':nom',$nom);
+				$stmtInsertion->bindParam(':prenom',$prenom);
+				$stmtInsertion->execute();
+			}
+			
+			$stmt->execute();
+			$stmt=BD::getAttributFromSimpleRow($stmt);
+			$insertionActeurFilm = "insert into acteurs('ref_code_film', 'ref_code_acteur') values (:idFilm,:idActeur)";
+			$stmtInsertionActeurFilm = $this->fdb->prepare($insertionActeurFilm);
+			$stmtInsertionActeurFilm->bindParam(':idFilm', $idFilm);
+			$stmtInsertionActeurFilm->bindParam(':idActeur', $stmt['code_indiv']);
+			$stmtInsertionActeurFilm->execute();
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+	}
+	
+	
 
 	public static function sqlite_num_rows($rows)
 	{

@@ -2,11 +2,10 @@
 require_once('../data/require_once.php');
 $db=new BD($pathToDBFromUserInterface);
 
-$numR = '10';
+$db->findOrCreateRealisteur($_GET['nom_realisateur'], $_GET['prenom_realisateur']);
 
-$idFilm = $db->createMovie($_GET['titre_original'], $_GET['titre_francais'], $_GET['origine'], $_GET['annee'], $_GET['duree'], "couleur", $_GET['nom_realisateur'], $_GET['prenom_realisateur'], "lgdvg.jpg", $_GET['genre']);
+$idFilm = $db->createMovie($_GET['titre_original'], $_GET['titre_francais'], $_GET['origine'], $_GET['annee'], $_GET['duree'], "couleur", $_GET['nom_realisateur'], $_GET['prenom_realisateur'], "lgdvg.jpg", $_GET['genre'], $_GET['acteurs']);
 header( "refresh:3; url=one_movie_one_page.php?idFilm=$idFilm");
-
 ?>
 
 <!doctype html>
@@ -20,7 +19,6 @@ header( "refresh:3; url=one_movie_one_page.php?idFilm=$idFilm");
 <body>
   <header><?php headerShow();?></header>
 	<p>Le film a été ajouté avec succès. Veuillez patienter quelques secondes, vous allez être redirigé</p>
-	<p> <?php echo $db->generateCode('films','code_film') ?></p>
   <?php importJavascriptShow() ?>
 </body>
 </html>
