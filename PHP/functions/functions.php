@@ -28,6 +28,7 @@ function displayFast($res)
   echo "</table>\n";
 }
 
+
 function displayHome($res)
 {
   echo "<table>\n";

@@ -48,7 +48,7 @@ $inputs=array(
 function advandedResearch($inputs)
 {
   ?>
-  <form method='post' action='display_advanced_research.php'>
+  <form method='get' action='display_advanced_research.php'>
   <?php displayInputs($inputs); ?>
   </form>
 <?php

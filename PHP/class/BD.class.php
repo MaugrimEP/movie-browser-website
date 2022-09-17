@@ -155,7 +155,7 @@ class BD
 		try
 		{
 			$stmt=$this->fdb->prepare($q);
-			$stmt->execute(array(BD::toStmt($titre_O),BD::toStmt($titre_F),BD::toStmt($pays),BD::toStmt($nomR),BD::toStmt($prenomR),BD::toStmt($duree)));
+			$stmt->execute(array(BD::toStmt($titre_O),BD::toStmt($titre_F),BD::toStmt($pays),BD::toStmt($nomR),BD::toStmt($prenomR),$duree));
 			return $stmt;
 		}
 		catch(PDOException $e)
