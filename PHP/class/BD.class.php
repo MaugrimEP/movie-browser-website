@@ -202,6 +202,18 @@ class BD
 			echo $e->getMessage();
 		}
 	}
+<<<<<<< HEAD
+=======
+
+	public function createMovie(){
+	}
+
+	public function generateMovieCode(){
+	}
+
+	public function addActor(){
+	}
+>>>>>>> d66978b (on a maintenant un lien vers la page du film dans le display_films_by_acteurs.php)
 
 	public function getGenres()
 	{
@@ -217,6 +229,53 @@ class BD
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	public function getFilmsByActeur($idActeur)
+	{
+		$q="select code_film,titre_original, titre_francais
+		from Films inner join Acteurs on (Films.code_film=Acteurs.ref_code_film)
+		where ref_code_acteur=?";
+		try
+		{
+			$stmt=$this->fdb->prepare($q);
+			$stmt->execute(array($idActeur));
+			return $stmt;
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+	}
+
+	public function getActeurs()
+	{
+		set_time_limit(0);
+		try
+		{
+			$res=$this->fdb->query("select distinct ref_code_acteur,nom,prenom from acteurs inner join Individus on (acteurs.ref_code_acteur=individus.code_indiv) order by nom,prenom");
+			return $res;
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+	}
+
+	public function getInfoActeur($a)
+	{
+		$q="select * from individus where code_indiv=?";
+		try
+		{
+			$stmt=$this->fdb->prepare($q);
+			$stmt->execute(array($a));
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+	}
+>>>>>>> d66978b (on a maintenant un lien vers la page du film dans le display_films_by_acteurs.php)
 	public function getGenresbyFilms($idF)
 	{
 		set_time_limit(0);
