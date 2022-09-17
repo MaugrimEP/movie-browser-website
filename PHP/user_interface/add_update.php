@@ -22,6 +22,7 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 		else{
 			echo "<h1>Modifier un film</h1>";
 		} ?>
+		<hr>
 		<form action='display_fast_research.php'>
 			<fieldset>
 				<div class="case"><label for = "titre_original">Titre Original</label><input required type="text" id = "titre_original" name="titre_original" title="Veuillez saisir le titre original du film ici"></div></br>
@@ -46,13 +47,10 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 				<div class="case"><label for = "genre">Genre</label>
 				<select id = "genre" name="genre">
 					<?php
-						$selected = "";
-						for ($i = 1895; $i<date('Y')+5; $i++){
-							if ($i == date('Y')){
-								$selected = 'selected = "selected"';
-							}
-							echo '<option value ="'.$i.'" '.$selected.'>'.$i.'</option>\n';
-							$selected = "";
+						$arrayDescriptionGenres=Rows2Array($co->getGenres(),'nom_genre');
+						
+						foreach ($arrayDescriptionGenres as $genre){
+							echo '<option value ="'.$genre.'">'.$genre.'</option>\n';
 						}
 					?>
 				</select></div></br>
@@ -64,10 +62,10 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 							<label for = "nom_acteur1">Nom acteur</label><input id="nom_acteur1" type="text" name="acteurs[]"/>
 						</div><br>
 					</div>
-					<button type="button" onclick="ajouterChamp()" >ajouter un acteur</button><br>
+					<button id = "add_actor" type="button" onclick="ajouterChamp()" >ajouter un acteur</button><br>
 				</section>
 				<hr>
-				<input type='submit' id = "submitButton" value='Ajouter le film'>
+				<input type='submit' id = "submitButton" value='Valider'>
 			</fieldset>
 
 			<script type="text/javascript">
