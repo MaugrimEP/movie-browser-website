@@ -1,5 +1,6 @@
 <?php
 require_once('../user_interface/header.php');
+require_once('../user_interface/js_jquery/import_jquery.php');
 require_once('../class/inputs/Text.class.php');
 require_once('../class/inputs/CheckBox.class.php');
 require_once('../class/inputs/Radio.class.php');

@@ -2,7 +2,8 @@
 variable par méthode GET : [idFilm=l'id du film] et action = <add|update> require_once('header.php')
 -->
 
-<?php require_once("header.php"); ?>
+<?php require_once("../data/require_once.php");
+$co = new BD($pathToDBFromUserInterface); ?>
 
 <!doctype html>
 <html lang="fr">
@@ -10,6 +11,7 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="./css/add_update.css"/>
 		<link rel="stylesheet" href="./css/header.css"/>
+		<script type="text/javascript" src="./javascript/header.js"></script>
 		<title>Ajout d'un film</title>
 	</head>
 	<header>
@@ -69,8 +71,8 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 				<hr>
 				<input type='submit' id = "submitButton" value='Ajouter le film'>
 			</fieldset>
-			
-			<script type="text/javascript">
+		</form>
+		<script type="text/javascript">
 		
 			var div = document.getElementById('list_acteurs');
 			var nb_acteurs = 1;
@@ -116,9 +118,8 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 				ajouterLigneActeur("acteurs[]");
 				div.appendChild(document.createElement("br"));
 			}
-			
 			</script>
-		</form>
+			<?php importJavascriptShow() ?>
 	</body>
 </html>
 
