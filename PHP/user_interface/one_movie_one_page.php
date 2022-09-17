@@ -6,7 +6,8 @@ require_once('../class/BD.class.php');
 		$db=new BD('../class/base_stock/database');
 			$film=$db->getInfoFilm($code_f);
 			$film=BD::getAttributFromSimpleRow($film);
-			echo "<h1> $film[titre_francais]($film[titre_original]) </h1>\n";
+			echo "<h1> $film[titre_francais]</h1>\n";
+			echo "<h2>($film[titre_original]) </h2>\n";
 			echo '<img src="../data/Image/test.jpg"/><br>';
 			echo "<table>
 					<tr>
