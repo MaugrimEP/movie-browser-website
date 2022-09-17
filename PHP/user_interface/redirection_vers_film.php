@@ -4,7 +4,7 @@ $db=new BD($pathToDBFromUserInterface);
 
 $numR = '10';
 
-$idFilm = $db->createMovie($_GET['titre_original'], $_GET['titre_francais'], $_GET['origine'], $_GET['annee'], $_GET['duree'], "couleur", $numR, "lgdvg.jpg", $_GET['genre']);
+$idFilm = $db->createMovie($_GET['titre_original'], $_GET['titre_francais'], $_GET['origine'], $_GET['annee'], $_GET['duree'], "couleur", $_GET['nom_realisateur'], $_GET['prenom_realisateur'], "lgdvg.jpg", $_GET['genre']);
 header( "refresh:3; url=one_movie_one_page.php?idFilm=$idFilm");
 
 ?>

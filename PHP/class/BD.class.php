@@ -203,7 +203,7 @@ class BD
 		}
 	}
 
-	public function createMovie($to,$tf,$pays,$date,$duree,$couleur,$realisateur,$image,$code_genre){
+	public function createMovie($to,$tf,$pays,$date,$duree,$couleur,$nom, $prenom,$image,$code_genre){
 		$exe="INSERT INTO films (code_film,titre_original,titre_francais,pays, date, duree, couleur, realisateur, image)
 		 VALUES (:code_f,:to,:tf,:pays,:d,:duree,:couleur,:realisateur,:image)";
 		 set_time_limit(0);
@@ -219,7 +219,7 @@ class BD
 			$stmt->bindParam(':d',$date);
 			$stmt->bindParam(':duree',$duree);
 			$stmt->bindParam(':couleur',$couleur);
-			$stmt->bindParam(':realisateur',$realisateur);
+			$stmt->bindParam(':realisateur',$this->findOrCreateRealisteur($nom,$prenom));
 			$stmt->bindParam(':image',$image);
 			$stmt->execute();
 			return $newId;
