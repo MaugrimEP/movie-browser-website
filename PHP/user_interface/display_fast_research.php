@@ -2,7 +2,6 @@
 require_once('../class/BD.class.php');
 require_once('../functions/functions.php');
 require_once('header.php');
-//variable typeRecherche=fast/advanced
 
 $co=new BD('../class/base_stock/database');
 if (isset($_GET['deleting']))

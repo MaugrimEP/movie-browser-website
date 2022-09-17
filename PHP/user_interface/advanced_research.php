@@ -21,8 +21,11 @@ $Ititre_francais->name='titre_F';
 $Ipays=new Select("pays",$arrayDescriptionPays,$arrayDescriptionPays);
 $Ipays->name='pays';
 
-$Irealisateur=new Text("realisateur: ");
-$Irealisateur->name='realisateur';
+$IrealisateurN=new Text("nom realisateur: ");
+$IrealisateurN->name='nomR';
+
+$IrealisateurP=new Text("prenom realistaur: ");
+$IrealisateurP->name='prenomR';
 
 //range ($d,$mi,$ma,$s)
 $Iduree=new Range("durée minimal",0,$db->dureeMax(),1,'minutes');
@@ -35,7 +38,8 @@ $inputs=array(
   $Ititre_original,
   $Ititre_francais,
   $Ipays,
-  $Irealisateur,
+  $IrealisateurN,
+  $IrealisateurP,
   $Iduree,
   $Isubmit,
 );

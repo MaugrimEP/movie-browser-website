@@ -143,9 +143,50 @@ class BD
 		}
 	}
 
-	public function advancedSearch($titre_original,$titre_francais,$pays,$realisateur,$duree)
+	public function advancedSearch($titre_O,$titre_F,$pays,$nomR,$prenomR,$duree)
 	{
+
 		set_time_limit(0);
+		$q="select *
+		from Films inner join Individus on (Films.realisateur=Individus.code_indiv)
+		where titre_original like ? and titre_francais like ? and pays like ? and nom like ? and prenom like ? and duree>=?";
+		echo "$titre_O,$titre_F,$pays,$nomR,$prenomR,$duree";
+		try
+		{
+			$stmt=$this->fdb->prepare($q);
+			$stmt->execute(array(BD::toStmt($titre_O),BD::toStmt($titre_F),BD::toStmt($pays),BD::toStmt($nomR),BD::toStmt($prenomR),BD::toStmt($duree)));
+			return $stmt;
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+
+	}
+
+	public function test()
+	{
+				set_time_limit(0);
+				$q="SELECT *
+				from Films
+				where titre_original like ?";
+				try
+				{
+					$nom='a';
+					$stmt=$this->fdb->prepare($q);
+					// $stmt->execute(array('%'.$nom.'%'));
+					$stmt->execute(array(BD::toStmt($nom)));
+					return $stmt;
+				}
+				catch(PDOException $e)
+				{
+					echo $e->getMessage();
+				}
+	}
+
+	public static function toStmt($key)
+	{
+		return '%'.$key.'%';
 	}
 
 }
