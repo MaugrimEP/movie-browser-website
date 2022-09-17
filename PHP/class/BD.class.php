@@ -210,15 +210,15 @@ class BD
  		try
  		{
 			$stmt=$this->fdb->prepare($exe);
-			$stmt=->bindParam(':code_f',$this->generateMovieCode());
-			$stmt=->bindParam(':to',$to);
-			$stmt=->bindParam(':tf',$tt);
-			$stmt=->bindParam(':pays',$pays);
-			$stmt=->bindParam(':d',$date);
-			$stmt=->bindParam(':duree',$duree);
-			$stmt=->bindParam(':couleur',$couleur);
-			$stmt=->bindParam(':realisateur',$realiseur);
-			$stmt=->bindParam(':image',$image);
+			$stmt->bindParam(':code_f',$this->generateMovieCode());
+			$stmt->bindParam(':to',$to);
+			$stmt->bindParam(':tf',$tt);
+			$stmt->bindParam(':pays',$pays);
+			$stmt->bindParam(':d',$date);
+			$stmt->bindParam(':duree',$duree);
+			$stmt->bindParam(':couleur',$couleur);
+			$stmt->bindParam(':realisateur',$realiseur);
+			$stmt->bindParam(':image',$image);
 			$stmt->execute();
  		}
  		catch(PDOException $e)
@@ -228,17 +228,32 @@ class BD
 
 	}
 
-	public function generateMovieCode(){
+	public function generateCode($table,$colonne){
 		try {
-			$res=$this->fdb->exec("select max(code_film) as max from films");
-			$res=BD::getAttributFromSimpleRow($res);
-			return $res['max']+1;
+			$stmt=$this->fdb->prepare("select max(:colonne) as max from :table");
+			$stmt->bindParam(':colonne',$colonne);
+			$stmt->bindParam(':table',$table);
+			$stmt->execute();
+			$stmt=BD::getAttributFromSimpleRow($res);
+			return $stmt['max']+1;
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}
 	}
 
-	public function addActor(){
+	public function addActor($nom,$prenom){
+		$add="insert into individus(code_indiv,nom,prenom) values (:code,:nom,:prenom)";
+		set_time_limit(0);
+		try
+		{
+			$stmt=$this->fdb->prepare($add);
+
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+
 	}
 
 	public function getGenres()
