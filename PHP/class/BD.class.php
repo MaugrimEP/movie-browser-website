@@ -159,7 +159,8 @@ class BD
 			{
 				$q="select *
 				from Films inner join Individus on (Films.realisateur=Individus.code_indiv)
-				where titre_original like ? and titre_francais like ? and pays like ? and nom like ? and prenom like ? and duree>=?";
+				where titre_original like ? and titre_francais like ? and pays like ? and nom like ? and prenom like ? and duree>=?
+				order by titre_original";
 				$stmt=$this->fdb->prepare($q);
 				$stmt->execute(array(BD::toStmt($titre_O),BD::toStmt($titre_F),BD::toStmt($pays),BD::toStmt($nomR),BD::toStmt($prenomR),$duree));
 			}
@@ -222,7 +223,7 @@ class BD
 			$stmt->bindParam(':realisateur',$this->findOrCreateRealisteur($nom,$prenom));
 			$stmt->bindParam(':image',$image);
 			$stmt->execute();
-			
+
 			for ($i = 0; $i<count($list_acteurs); $i+=2){
 				$this->findOrCreateActeur($list_acteurs[$i+1], $list_acteurs[$i], $newId);
 			}
@@ -399,7 +400,7 @@ class BD
 			echo $e->getMessage();
 		}
 	}
-	
+
 	public function findOrCreateActeur($nom, $prenom, $idFilm)
 	{
 		$q="select * from individus inner join acteurs on (individus.code_indiv=acteurs.ref_code_acteur)
@@ -420,7 +421,7 @@ class BD
 				$stmtInsertion->bindParam(':prenom',$prenom);
 				$stmtInsertion->execute();
 			}
-			
+
 			$stmt->execute();
 			$stmt=BD::getAttributFromSimpleRow($stmt);
 			$insertionActeurFilm = "insert into acteurs('ref_code_film', 'ref_code_acteur') values (:idFilm,:idActeur)";
@@ -434,8 +435,8 @@ class BD
 			echo $e->getMessage();
 		}
 	}
-	
-	
+
+
 
 	public static function sqlite_num_rows($rows)
 	{
