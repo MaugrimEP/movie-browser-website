@@ -998,7 +998,6 @@ $valuesActeurs1="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALU
 (189, 393),
 (189, 306),
 (189, 392),
-(190, 394),
 (190, 394)";
 $valuesActeurs2="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALUES
 (191, 396),
@@ -1499,7 +1498,6 @@ $valuesActeurs2="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALU
 (392, 666),
 (298, 666),
 (299, 666),
-(393, 381),
 (393, 381)";
 $valuesActeurs3="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALUES
 (393, 668),
@@ -1726,7 +1724,6 @@ $valuesActeurs3="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALU
 (480, 777),
 (480, 776),
 (321, 778),
-(120, 778),
 (120, 778)";
 $valuesActeurs4="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALUES
 (448, 779),
@@ -2020,7 +2017,6 @@ $valuesActeurs4="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALU
 (10, 44),
 (10, 45),
 (11, 46),
-(11, 47),
 (11, 47)";
 $valuesActeurs5="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALUES
 (11, 48),
@@ -2252,7 +2248,6 @@ $valuesActeurs5="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALU
 (40, 259),
 (118, 151),
 (118, 153),
-(118, 140),
 (118, 140)";
 $valuesActeurs6="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALUES
 (118, 218),
@@ -2523,7 +2518,6 @@ $valuesActeurs6="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALU
 (220, 254),
 (220, 170),
 (221, 139),
-(222, 396),
 (222, 396)";
 $valuesActeurs7="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALUES
 (222, 465),
@@ -2765,7 +2759,6 @@ $valuesActeurs7="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALU
 (18, 595),
 (318, 119),
 (318, 256),
-(318, 52),
 (318, 52)";
 $valuesActeurs8="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALUES
 (319, 165),
@@ -3107,7 +3100,6 @@ $valuesActeurs8="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALU
 (462, 759),
 (463, 762),
 (463, 608),
-(464, 543),
 (464, 543)";
 $valuesActeurs9="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALUES
 (464, 227),
