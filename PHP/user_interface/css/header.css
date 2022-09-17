@@ -1,0 +1,94 @@
+body{
+	margin : 0px;
+}
+
+#list_header{
+  flex : 1;
+  display : flex;
+  list-style: none;
+  justify-content: center;
+  margin-top : 0px;
+  margin-bottom : 0px;
+  padding-left : 0px;
+  align-items: center;
+}
+
+#search_button{
+  background : #7C7C7C;
+  background-image : url(./images/loupe.png);
+  background-size: 20px 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+	border : none;
+	border-radius : 20px;
+	color : white;
+	font : 14px Georgia, "Times New Roman", Times, serif;
+	letter-spacing : 1px;
+	padding : 10px;
+	text-transform : uppercase;
+  height : 50%;
+  align-self: center;
+  margin-left : 3%;
+  height : 2.5em;
+  width : 2.5em;
+  transition : all 0.5s;
+}
+
+#search_button:hover{
+	transform : scale(1.1);
+	cursor : pointer;
+  background-color: #B7B7B7
+}
+
+.lien_header{
+  color : white;
+  font : 20px Georgia, "Times New Roman", Times, serif;
+  text-decoration: none;
+  height : 100%;
+  width : 100%;
+  display : flex;
+  justify-content: center;
+    transition : all 0.3s;
+}
+
+.lien_header:hover{
+  background : #7C7C7C;
+}
+
+.contenu_elem_liste_header{
+  margin : auto;
+	letter-spacing : 2px;
+}
+
+.elem_list_header{
+  flex : 1;
+  display : flex;
+  justify-content: center;
+  margin-left : 5%;
+  margin-right : 5%;
+  height : 100%;
+}
+
+.animation_header{
+  text-align: center;
+  align-self: center;
+  text-transform: uppercase;
+}
+
+#form_header{
+  height : 5em;
+  background : #5B5B5B;
+  display : flex;
+}
+
+#search_bar{
+	background-color: #7C7C7C;
+  border: none;
+  height : 40%;
+  width : 100%;
+  text-indent: 3%;
+  font-variant: normal;
+  font-style: oblique;
+  font : 14px Andale Mono, monospace, Times, serif;
+  color : #FFFFFF;
+}

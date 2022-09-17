@@ -2,12 +2,12 @@
 function headerShow()
 {
   echo "
-  <form method='get' action='display_fast_research.php'>
-  <ul>
-    <li><a href ='home.php'>Home</a></li>
-    <li><a href='add_update.php?action=add'>Ajouter un film</a></li>
-    <li><a href='advanced_research.php'>Recherche Avancée</a></li>
-    <li><input type='text' name='keyResearch'><input type='submit' value='Search'></li>
+  <form id = 'form_header' method='get' action='display_fast_research.php'>
+  <ul id='list_header'>
+    <li class = 'elem_list_header'><a class = 'contenu_elem_liste_header lien_header' href ='home.php'><div class = 'animation_header'>Home</div></a></li>
+    <li class = 'elem_list_header'><a class = 'contenu_elem_liste_header lien_header' href='add_update.php?action=add'><div class = 'animation_header'>Ajouter un film</div></a></li>
+    <li class = 'elem_list_header'><a class = 'contenu_elem_liste_header lien_header' href='advanced_research.php'><div class = 'animation_header'>Recherche Avancée</div></a></li>
+    <li class = 'elem_list_header'><input id = 'search_bar' class = 'contenu_elem_liste_header' type='text' name='keyResearch' placeholder = 'Recherche...'><input id = 'search_button' type='submit' value=''></li>
   </ul>
   </form>";
 }

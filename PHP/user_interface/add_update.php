@@ -9,12 +9,13 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="./css/add_update.css"/>
+		<link rel="stylesheet" href="./css/header.css"/>
 		<title>Ajout d'un film</title>
 	</head>
-	<body>
-		<header>
+	<header>
 			<?php headerShow() ?>
 		</header>
+	<body>
 		<?php if ($_GET['action']=="add"){
 			echo "<h1>Ajouter un film</h1>";
 		}
@@ -25,6 +26,7 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 			<fieldset>
 				<div class="case"><label for = "titre_original">Titre Original</label><input required type="text" id = "titre_original" name="titre_original" title="Veuillez saisir le titre original du film ici"></div></br>
 				<div class ="case"><label for = "titre_francais">Titre Français</label><input required type="text" id = "titre_francais" name="titre_francais" title="Veuillez saisir le titre français du film ici"></div></br>
+				<div class ="case"><label for = "origine">Origine</label><input required type="text" id = "origine" name="origine" title="Veuillez saisir le pays d'origine du film ici"></div></br>
 				<div class="case"><label for = "annee">Année de sortie</label>
 				<select id = "annee" name="annee">
 					<?php
@@ -41,6 +43,19 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 				<div class="case"><label for = "duree">Durée (minutes)</label><input required type="text" id = "duree" name="duree" title="Veuillez saisir la durée du film ici (en minutes)"></div></br>
 				<div class="case"><label for = "prenom_realisateur">Prénom réalisteur</label><input required type="text" id = "prenom_realisateur" name="prenom_realisateur" title="Veuillez saisir le prénom du réalisateur du film ici">
 				<label for = "nom_realisateur">Nom réalisteur</label><input required type="text" id = "nom_realisateur" name="nom_realisateur" title="Veuillez saisir le nom du réalisateur du film ici"></div></br>
+				<div class="case"><label for = "genre">Genre</label>
+				<select id = "genre" name="genre">
+					<?php
+						$selected = "";
+						for ($i = 1895; $i<date('Y')+5; $i++){
+							if ($i == date('Y')){
+								$selected = 'selected = "selected"';
+							}
+							echo '<option value ="'.$i.'" '.$selected.'>'.$i.'</option>\n';
+							$selected = "";
+						}
+					?>
+				</select></div></br>
 				<hr>
 				<section id = "acteurBox">
 					<div id = "list_acteurs">
@@ -51,6 +66,8 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 					</div>
 					<button type="button" onclick="ajouterChamp()" >ajouter un acteur</button><br>
 				</section>
+				<hr>
+				<input type='submit' id = "submitButton" value='Ajouter le film'>
 			</fieldset>
 			
 			<script type="text/javascript">
@@ -101,7 +118,6 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 			}
 			
 			</script>
-			
 		</form>
 	</body>
 </html>

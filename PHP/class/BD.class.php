@@ -190,6 +190,15 @@ class BD
 			echo $e->getMessage();
 		}
 	}
+	
+	public function createMovie(){
+	}
+	
+	public function generateMovieCode(){
+	}
+	
+	public function addActor(){
+	}
 
 }
 ?>
