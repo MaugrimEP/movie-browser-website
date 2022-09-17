@@ -1,4 +1,5 @@
 <?php
+// script a lancer pour regenerer le DB
 include_once('BD.class.php');
 require_once('../data/DataDB.php');
 

@@ -7,7 +7,7 @@ class BD
 		try
 		{
 			//creation de la base de donnée
-			$this->fdb = new PDO('sqlite:'.$chemin.'sqlite3');
+			$this->fdb = new PDO('sqlite:'.$chemin.'.sqlite3');
 			//Gerer le niveau des erreurs rapportees
 			$this->fdb->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		}
