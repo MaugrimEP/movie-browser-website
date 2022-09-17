@@ -9,7 +9,7 @@ $Ititre_francais=new Text("titre francais: ");
 $Ititre_francais->name='titre_F';
 
 //select $description,$descriptionpourChaque,$values
-    $arrayDescriptionPays=paysRows2Array($db->getPays());
+    $arrayDescriptionPays=Rows2Array($db->getPays(),'pays');
     $arrayPays=$arrayDescriptionPays;
     $arrayPays[]="";
     $arrayDescriptionPays[]="Non spécifier";
@@ -30,6 +30,18 @@ $IrealisateurP->name='prenomR';
 $Iduree=new Range("durée minimal",0,$db->dureeMax(),1,'minutes');
 $Iduree->name='duree';
 
+
+//select $description,$descriptionpourChaque,$values
+    $arrayDescriptionGenres=Rows2Array($db->getGenres(),'nom_genre');
+    $arrayGenres=$arrayDescriptionGenres;
+    $arrayGenres[]="NNDEF";
+    $arrayDescriptionGenres[]="Non spécifier";
+
+    $arrayGenres=array_reverse($arrayGenres);
+    $arrayDescriptionGenres=array_reverse($arrayDescriptionGenres);
+$Igenres=new Select ("genre du film",$arrayDescriptionGenres,$arrayGenres);
+$Igenres->name='genres';
+
 $Isubmit=new Submit('rechercher !','GO');
 $Isubmit->name='submit';
 
@@ -40,6 +52,7 @@ $inputs=array(
   $IrealisateurN,
   $IrealisateurP,
   $Iduree,
+  $Igenres,
   $Isubmit
 );
 

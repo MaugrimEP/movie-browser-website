@@ -22,12 +22,13 @@ if (isset($_GET['deleting']))
   $titre_original=simpleArray2String($_GET['titre_O']);
   $titre_francais=simpleArray2String($_GET['titre_F']);
   $pays=simpleArray2String($_GET['pays']);
+  $genres=simpleArray2String($_GET['genres']);
   $nomR=simpleArray2String($_GET['nomR']);
   $prenomR=simpleArray2String($_GET['prenomR']);
   $duree=simpleArray2String($_GET['duree']);
 
 
-  $res=$db->advancedSearch($titre_original,$titre_francais,$pays,$nomR,$prenomR,$duree);
+  $res=$db->advancedSearch($titre_original,$titre_francais,$pays,$nomR,$prenomR,$duree,$genres);
   echo "<table class='pure-table'>\n";
   echo "<thread><tr><th> Titre original </th> <th> Titre francais </th> <th> Date </th> <th> Durée </th> <th>nom Réalisateur </th><th> prénom Realisateur </th> <th> Pays </th></tr></thread>\n";
   foreach($res as $r)
@@ -49,6 +50,7 @@ if (isset($_GET['deleting']))
     <input type='hidden' name='nomR[]' value='$nomR'/>
     <input type='hidden' name='prenomR[]' value='$prenomR'/>
     <input type='hidden' name='duree[]' value='$duree'/>
+    <input type='hidden' name='genres[]' value='$genres'/>
 
     <input type='submit' value='Supprimer'> </td>
     </form>\n";

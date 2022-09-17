@@ -149,17 +149,29 @@ class BD
 		}
 	}
 
-	public function advancedSearch($titre_O,$titre_F,$pays,$nomR,$prenomR,$duree)
+	public function advancedSearch($titre_O,$titre_F,$pays,$nomR,$prenomR,$duree,$genres)
 	{
 
 		set_time_limit(0);
-		$q="select *
-		from Films inner join Individus on (Films.realisateur=Individus.code_indiv)
-		where titre_original like ? and titre_francais like ? and pays like ? and nom like ? and prenom like ? and duree>=?";
 		try
 		{
-			$stmt=$this->fdb->prepare($q);
-			$stmt->execute(array(BD::toStmt($titre_O),BD::toStmt($titre_F),BD::toStmt($pays),BD::toStmt($nomR),BD::toStmt($prenomR),$duree));
+			if ($genres=="NNDEF")
+			{
+				$q="select *
+				from Films inner join Individus on (Films.realisateur=Individus.code_indiv)
+				where titre_original like ? and titre_francais like ? and pays like ? and nom like ? and prenom like ? and duree>=?";
+				$stmt=$this->fdb->prepare($q);
+				$stmt->execute(array(BD::toStmt($titre_O),BD::toStmt($titre_F),BD::toStmt($pays),BD::toStmt($nomR),BD::toStmt($prenomR),$duree));
+			}
+			else
+			{
+				$q="select *
+				from Films inner join Individus on (Films.realisateur=Individus.code_indiv) inner join classification on (Films.code_film=Classification.ref_code_film) inner join genres on (Classification.ref_code_genre=genres.code_genre)
+				where titre_original like ? and titre_francais like ? and pays like ? and nom like ? and prenom like ? and duree>=? and nom_genre==?";
+				$stmt=$this->fdb->prepare($q);
+				$stmt->execute(array(BD::toStmt($titre_O),BD::toStmt($titre_F),BD::toStmt($pays),BD::toStmt($nomR),BD::toStmt($prenomR),$duree,$genres));
+
+			}
 			return $stmt;
 		}
 		catch(PDOException $e)
@@ -198,6 +210,20 @@ class BD
 	}
 	
 	public function addActor(){
+	}
+
+	public function getGenres()
+	{
+		set_time_limit(0);
+		try
+		{
+			$res=$this->fdb->query("select distinct nom_genre from genres order by nom_genre DESC");
+			return $res;
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
 	}
 
 }

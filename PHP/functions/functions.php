@@ -44,12 +44,12 @@ function displayHome($res)
   echo "</table>\n";
 }
 
-function paysRows2Array($rows)
+function Rows2Array($rows,$column)
 {
   $res=array();
   foreach($rows as $r)
   {
-    $res[] = $r['pays'];
+    $res[] = $r[$column];
   }
   return $res;
 }
