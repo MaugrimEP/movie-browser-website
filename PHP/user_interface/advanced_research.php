@@ -72,13 +72,15 @@ function advandedResearch($inputs)
 <html lang="fr">
 <head>
   		<link rel="stylesheet" href="./css/header.css"/>
+  		<link rel="stylesheet" href="./css/advanced_research.css"/>
   <meta charset="utf-8">
-  <title>Recherche</title>
+  <title>Recherche avancé</title>
 </head>
 <body>
   <header><?php headerShow(); ?></header>
   <article>
-  <h2>Recherche Avancée</h2>
+  <h1>Recherche Avancée</h1>
+  <hr>
   <?php  advandedResearch($inputs) ?>
   </article>
   <?php importJavascriptShow() ?>

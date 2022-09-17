@@ -25,19 +25,24 @@ function displayFast($res)
 }
 
 
-function displayHome($res)
-{
-  echo "<table >\n";
-  echo "<tr><th> Titre du film </th> <th> Titre francais </th> <th> Date </th> <th> Durée </th> <th> Réalisateur </th></tr>\n";
-  foreach($res as $r)
-  {
-    echo "<tr>\n";
-    echo "<td><a href='one_movie_one_page.php?idFilm=$r[code_film]'> $r[titre_original] </a></td>
-    <td><a href='one_movie_one_page.php?idFilm=$r[code_film]'> $r[titre_francais] </a></td>
-    <td> $r[date] </td> <td> $r[duree] </td> <td> $r[nom] $r[prenom]</td>";
-    echo "</tr>\n";
+function displayHome($res){
+  echo "<section>";
+  foreach($res as $r){
+    echo "<a href='one_movie_one_page.php?idFilm=".$r['code_film']."'>
+			<div class = 'fiche_film' name = 'fiche_film'>
+				<div class = 'sous_fiche_film' name = 'sous_fiche_film'>
+					<img src = '../data/Image/lgdvg.jpg' alt = '' class = 'affiche' height = '400'/>
+					<div class = 'info'>
+						<h2 class = 'titre_film'>".$r['titre_francais']."</h2>
+						<div class = 'ligne'>
+							<label>Réalisateur :</label><div class = 'valeur'>".$r['prenom']." ".$r['nom']."</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>";
   }
-  echo "</table>\n";
+  echo "</section>";
 }
 
 function Rows2Array($rows,$column)
