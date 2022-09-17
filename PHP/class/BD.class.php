@@ -210,7 +210,7 @@ class BD
  		try
  		{
 			$newId = $this->generateCode('films','code_film');
-			$this->fdb->execute("insert into classification (ref_code_film,ref_code_genre) values ($newId,$code_genre)");
+			$this->fdb->exec("insert into classification (ref_code_film,ref_code_genre) values ($newId,$code_genre)");
 			$stmt=$this->fdb->prepare($exe);
 			$stmt->bindParam(':code_f',$newId);
 			$stmt->bindParam(':to',$to);
