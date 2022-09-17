@@ -50,8 +50,7 @@ class BD
 			where titre_original like '%$key%' or titre_francais like '%:key%'";
 			$stmt = $this->fdb->prepare($research);
 
-			$stmt->bindParam(':key',$k);
-			$k=$key;
+			$stmt->bindParam(':key',$key);
 
 			$re=$stmt->execute();
 			return $re;
@@ -97,6 +96,28 @@ class BD
 		{
 			return $r;
 		}
+	}
+
+	public function deleteFilmStatm($idF)
+	{
+		$deleting=array(
+		"delete from acteurs where ref_code_film=:key",
+		"delete from classification where ref_code_film=:key",
+		"delete from films where code_film=:key");
+		try
+		{
+			foreach($deleting as $d)
+			{
+				$stmt = $this->fdb->prepare($d);
+				$stmt->bindParam(':key',$idF);
+				$stmt->execute();
+			}
+		}
+		catch (PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+
 	}
 
 }
