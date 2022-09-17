@@ -83,7 +83,7 @@ class BD
 		try {
 			set_time_limit(0);
 			$re=$this->fdb->query("select *
-			from Films
+			from Films inner join Individus on (Films.realisateur=Individus.code_indiv)
 			 where code_film=".$id);
 			return $re;
 		} catch (PDOException $e) {

@@ -7,7 +7,7 @@ require_once('../class/BD.class.php');
 			$film=$db->getInfoFilm($code_f);
 			$film=BD::getAttributFromSimpleRow($film);
 			echo "<h1> $film[titre_francais]($film[titre_original]) </h1>\n";
-			echo '<img src="../data/Image/test.jpg"/><br>\n';
+			echo '<img src="../data/Image/test.jpg"/><br>';
 			echo "<table>
 					<tr>
 						<td> Titre Original </td>
@@ -30,11 +30,12 @@ require_once('../class/BD.class.php');
 						<td> $film[duree] </td>
 					</tr>
 					<tr>
+						<td> Type d'image </td>
 						<td> $film[couleur]</td>
 					</tr>
 					<tr>
 						<td> Réalisateur </td>
-						<td> $film[realisateur]</td>
+						<td> $film[nom] $film[prenom]</td>
 					</tr>
 				</table>";
 	}
