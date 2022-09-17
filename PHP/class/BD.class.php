@@ -202,8 +202,6 @@ class BD
 			echo $e->getMessage();
 		}
 	}
-<<<<<<< HEAD
-=======
 
 	public function createMovie(){
 	}
@@ -213,7 +211,6 @@ class BD
 
 	public function addActor(){
 	}
->>>>>>> d66978b (on a maintenant un lien vers la page du film dans le display_films_by_acteurs.php)
 
 	public function getGenres()
 	{
@@ -229,8 +226,6 @@ class BD
 		}
 	}
 
-<<<<<<< HEAD
-=======
 	public function getFilmsByActeur($idActeur)
 	{
 		$q="select code_film,titre_original, titre_francais
@@ -269,13 +264,13 @@ class BD
 		{
 			$stmt=$this->fdb->prepare($q);
 			$stmt->execute(array($a));
+			return $stmt;
 		}
 		catch(PDOException $e)
 		{
 			echo $e->getMessage();
 		}
 	}
->>>>>>> d66978b (on a maintenant un lien vers la page du film dans le display_films_by_acteurs.php)
 	public function getGenresbyFilms($idF)
 	{
 		set_time_limit(0);
@@ -293,6 +288,5 @@ class BD
 			echo $e->getMessage();
 		}
 	}
-	
 }
 ?>

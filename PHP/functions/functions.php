@@ -1,10 +1,11 @@
-<?php
-require_once("../data/require_once.php");
+<?
+require_once('../data/require_once.php');
+
 
 function displayFast($res)
 {
-  echo "<table class='pure-table'>\n";
-  echo "<thread><tr><th> Titre original </th> <th> Titre francais </th> <th> Date </th> <th> Durée </th> <th>nom Réalisateur </td><th> prénom Realisateur </th> <th> Pays </th></tr></thread>\n";
+  echo "<table >\n";
+  echo "<tr><th> Titre original </th> <th> Titre francais </th> <th> Date </th> <th> Durée </th> <th>nom Réalisateur </td><th> prénom Realisateur </th> <th> Pays </th></tr>\n";
   foreach($res as $r)
   {
     echo "<tr>\n";
@@ -26,8 +27,8 @@ function displayFast($res)
 
 function displayHome($res)
 {
-  echo "<table class='pure-table'>\n";
-  echo "<thread><tr><th> Titre du film </th> <th> Titre francais </th> <th> Date </th> <th> Durée </th> <th> Réalisateur </th></tr></thread>\n";
+  echo "<table >\n";
+  echo "<tr><th> Titre du film </th> <th> Titre francais </th> <th> Date </th> <th> Durée </th> <th> Réalisateur </th></tr>\n";
   foreach($res as $r)
   {
     echo "<tr>\n";
