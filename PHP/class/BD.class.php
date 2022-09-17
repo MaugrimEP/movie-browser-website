@@ -2,12 +2,12 @@
 class BD
 {
 	public $fdb;
-	public function __construct()
+	public function __construct($chemin)
 	{
 		try
 		{
 			//creation de la base de donnée
-			$this->fdb = new PDO('sqlite:base_stock/database.sqlite3');
+			$this->fdb = new PDO('sqlite:'.$chemin.'sqlite3');
 			//Gerer le niveau des erreurs rapportees
 			$this->fdb->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		}
@@ -43,11 +43,24 @@ class BD
 
 	public function getFastSearch($key)
 	{
-		$re=$this->fdb->query("select *
-		from Films natural left outer join Acteurs natural left outer join Classification natural left outer join Genres natural left outer join Individus
-		where titre_original like '%$key' or titre_francais  like '%$key' or realisateur like '%$key' or nom_genre like '%$key' or nom like '%$key' or prenom like '%$key'"
-		);
-		return $re;
+		try
+		{
+			$research="select distinct *
+			from Films natural left outer join Acteurs natural left outer join Classification natural left outer join Genres natural left outer join Individus
+			where titre_original like '%:key%' or titre_francais  like '%:key%' or realisateur like '%:key%' or nom_genre like '%:key%' or nom like '%:key%' or prenom like '%:key%'
+			";
+			$stmt = $this->fdb->prepare($research);
+
+			$stmt->bindParam(':key',$k);
+			$k=$key;
+
+			$re=$stmt->execute();
+			return $re;
+		}
+		catch (PDOException $e)
+		{
+			echo $e->getMessage();
+		}
 	}
 }
 ?>

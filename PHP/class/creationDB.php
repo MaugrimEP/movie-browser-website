@@ -2,7 +2,7 @@
 include_once('BD.class.php');
 require_once('../data/DataDB.php');
 
-$bd=new BD();
+$bd=new BD('base_stock/database');
 $bd->creationTable($dropFilms,$creationFilms,$valuesFilms);
 $bd->creationTable($dropActeurs,$creationActeurs,$valuesActeurs);
 $bd->creationTable($dropClassification,$creationClassification,$valuesClassification);
