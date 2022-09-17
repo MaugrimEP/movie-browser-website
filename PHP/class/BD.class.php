@@ -41,20 +41,35 @@ class BD
 		}
 	}
 
-	public function getFastSearch($key)
+	public function getFastSearchStmt($key)
 	{
 		try
 		{
-			$research="select distinct *
-			from Films natural left outer join Acteurs natural left outer join Classification natural left outer join Genres natural left outer join Individus
-			where titre_original like '%:key%' or titre_francais  like '%:key%' or realisateur like '%:key%' or nom_genre like '%:key%' or nom like '%:key%' or prenom like '%:key%'
-			";
+			$research="select *
+			from Films
+			where titre_original like '%$key%' or titre_francais like '%:key%'";
 			$stmt = $this->fdb->prepare($research);
 
 			$stmt->bindParam(':key',$k);
 			$k=$key;
 
 			$re=$stmt->execute();
+			return $re;
+		}
+		catch (PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+	}
+
+	public function getFastSearch($key)
+	{
+		try
+		{
+			set_time_limit(0);
+			$re=$this->fdb->query("select *
+			from Films
+			where titre_original like '%$key%' or titre_francais like '%$key%'");
 			return $re;
 		}
 		catch (PDOException $e)
