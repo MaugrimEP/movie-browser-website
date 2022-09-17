@@ -160,7 +160,7 @@ class BD
 				$q="select *
 				from Films inner join Individus on (Films.realisateur=Individus.code_indiv)
 				where titre_original like ? and titre_francais like ? and pays like ? and nom like ? and prenom like ? and duree>=?
-				order by titre_original";
+				order by titre_original,titre_francais,date,duree,nom,prenom,pays";
 				$stmt=$this->fdb->prepare($q);
 				$stmt->execute(array(BD::toStmt($titre_O),BD::toStmt($titre_F),BD::toStmt($pays),BD::toStmt($nomR),BD::toStmt($prenomR),$duree));
 			}
