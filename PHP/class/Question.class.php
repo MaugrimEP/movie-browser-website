@@ -7,8 +7,7 @@ abstract class Question
 
 	public function __construct($d)
 	{
-		self::$nbQuestion ++;
-		$this->name="champ".self::$nbQuestion;
+		$this->name="champ";
 		$this->description=$d;
 		
 		
