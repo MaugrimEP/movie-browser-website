@@ -15,7 +15,16 @@ $db=new BD('../class/base_stock/database');
   <header></header>
   <article>
   <h2></h2>
-  <?php displayFast($db->advancedSearch($_POST['Ititre_original']->name,$_POST['Ititre_francais']->name,$_POST['Ipays']->name,$_POST['IrealisateurN']->name,$_POST['IrealisateurP']->name,$_POST['Iduree']->name)) ?>
+  <?php
+  $titre_original=simpleArray2String($_POST['titre_O']);
+  $titre_francais=simpleArray2String($_POST['titre_F']);
+  $pays=simpleArray2String($_POST['pays']);
+  $nomR=simpleArray2String($_POST['nomR']);
+  $prenomR=simpleArray2String($_POST['prenomR']);
+  $duree=simpleArray2String($_POST['duree']);
+  echo "$titre_original,$titre_francais,$pays,$nomR,$prenomR,$duree";
+  displayFast($db->advancedSearch($titre_original,$titre_francais,$pays,$nomR,$prenomR,$duree));
+  ?>
   </article>
 </body>
 </html>

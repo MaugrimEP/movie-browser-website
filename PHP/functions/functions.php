@@ -60,4 +60,13 @@ function displayInputs($I)
     $e->affiche();
   }
 }
+
+function simpleArray2String($a)
+{
+  foreach($a as $s)
+  {
+    return $s;
+  }
+}
+
 ?>

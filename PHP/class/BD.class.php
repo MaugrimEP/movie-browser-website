@@ -46,17 +46,19 @@ class BD
 		try
 		{
 			set_time_limit(0);
-			$re=$this->fdb->query("select *
+			$stmt=$this->fdb->prepare("select *
 			from Films inner join Individus on (Films.realisateur=Individus.code_indiv)
-			where titre_original like '%$key%' or titre_francais like '%$key%'
+			where titre_original like ? or titre_francais like ?
 			order by titre_original");
-			return $re;
+			$stmt->execute(array(BD::toStmt($key)));
+			return $stmt;
 		}
 		catch (PDOException $e)
 		{
 			echo $e->getMessage();
 		}
 	}
+
 	public function getInfoFilm($id)
 	{
 		try {
@@ -150,7 +152,6 @@ class BD
 		$q="select *
 		from Films inner join Individus on (Films.realisateur=Individus.code_indiv)
 		where titre_original like ? and titre_francais like ? and pays like ? and nom like ? and prenom like ? and duree>=?";
-		echo "$titre_O,$titre_F,$pays,$nomR,$prenomR,$duree";
 		try
 		{
 			$stmt=$this->fdb->prepare($q);
