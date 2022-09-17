@@ -69,7 +69,9 @@ class BD
 			set_time_limit(0);
 			$re=$this->fdb->query("select *
 			from Films
-			where titre_original like '%$key%' or titre_francais like '%$key%'");
+			where titre_original like '%$key%' or titre_francais like '%$key%'
+			order by titre_original
+			");
 			return $re;
 		}
 		catch (PDOException $e)
