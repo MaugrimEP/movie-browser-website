@@ -1,0 +1,20 @@
+.case{
+	display : flex;
+}
+
+label{
+	flex-basis : 10%;
+	display : block;
+	
+}
+
+input{
+	margin-right : 1%;
+	display : block;
+}
+
+hr{
+	margin-bottom : 1.5%;
+
+}
+
