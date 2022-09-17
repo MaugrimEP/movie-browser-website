@@ -79,5 +79,24 @@ class BD
 			echo $e->getMessage();
 		}
 	}
+	public function getInfoFilm($id)
+	{
+		try {
+			set_time_limit(0);
+			$re=$this->fdb->query("select * from Films where code_film=".$id);
+			return $re;
+		} catch (PDOException $e) {
+				echo $e->getMessage();
+		}
+	}
+
+	public static function getAttributFromSimpleRow($row)
+	{
+		foreach($row as $r)
+		{
+			return $r;
+		}
+	}
+
 }
 ?>
