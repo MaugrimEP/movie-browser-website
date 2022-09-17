@@ -213,7 +213,7 @@ class BD
 			$stmt=$this->fdb->prepare($exe);
 			$stmt->bindParam(':code_f',$newId);
 			$stmt->bindParam(':to',$to);
-			$stmt->bindParam(':tf',$tt);
+			$stmt->bindParam(':tf',$tf);
 			$stmt->bindParam(':pays',$pays);
 			$stmt->bindParam(':d',$date);
 			$stmt->bindParam(':duree',$duree);
