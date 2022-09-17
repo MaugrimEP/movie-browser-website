@@ -54,10 +54,9 @@ $genres=$db->getGenresbyFilms($_GET['idFilm']);
 <body>
   <header><?php headerShow();?></header>
   <article>
-	<?creationPageFilm($_GET['idFilm']);
+	<?php creationPageFilm($_GET['idFilm']);
 	displayActeurs($acteurs);
 	displayGenres($genres);?>
   </article>
-  <?php importJavascriptShow() ?>
 </body>
 </html>
