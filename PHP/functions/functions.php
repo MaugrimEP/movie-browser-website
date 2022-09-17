@@ -1,5 +1,5 @@
 <?
-function display($res)
+function displayFast($res)
 {
   echo "<table>\n";
   echo "<tr><th> Titre du film </th> <th> Titre francais </th> <th> Date </th> <th> Durée </th> <th> Réalisateur </th></tr>\n";
@@ -15,7 +15,7 @@ function display($res)
     <input type='hidden' name='deleting' value='true'/>
     <input type='hidden' name='typeRecherche' value='$_GET[typeRecherche]'/>
     <input type='hidden' name='keyResearch' value='$_GET[keyResearch]'/>
-    <input type='submit' value='Supprimer'</td>
+    <input type='submit' value='Supprimer'> </td>
     </form>\n";
     echo "</tr>\n";
   }

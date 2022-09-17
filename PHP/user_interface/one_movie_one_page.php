@@ -1,13 +1,14 @@
 <?php
 require_once('../class/BD.class.php');
+require_once('header.php');
 // variable $_GET[idFilm]
 	function creationPageFilm($code_f)
 	{
 		$db=new BD('../class/base_stock/database');
 			$film=$db->getInfoFilm($code_f);
 			$film=BD::getAttributFromSimpleRow($film);
-			echo "<h1> $film[titre_francais]</h1>\n";
-			echo "<h2>($film[titre_original]) </h2>\n";
+			echo "<h2> $film[titre_francais]</h2>\n";
+			echo "<h3>($film[titre_original]) </h3>\n";
 			echo '<img src="../data/Image/test.jpg"/><br>';
 			echo "<table>
 					<tr>
@@ -40,5 +41,17 @@ require_once('../class/BD.class.php');
 					</tr>
 				</table>";
 	}
-creationPageFilm($_GET['idFilm']);
 ?>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Film</title>
+</head>
+<body>
+  <header><?php headerShow();?></header>
+  <article>
+	<?creationPageFilm($_GET['idFilm']);?>
+  </article>
+</body>
+</html>
