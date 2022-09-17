@@ -117,8 +117,20 @@ class BD
 		{
 			echo $e->getMessage();
 		}
-
 	}
 
+	public function getTenFirstRows()
+	{
+		set_time_limit(0);
+		try
+		{
+			$r=$this->fdb->query("select * from Films inner join Individus on (Films.realisateur=Individus.code_indiv) order by date DESC limit 10");
+			return $r;
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+	}
 }
 ?>
