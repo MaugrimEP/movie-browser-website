@@ -372,7 +372,7 @@ class BD
 			$stmt->bindParam(':nom',$nom);
 			$stmt->bindParam(':prenom',$prenom);
 			$stmt->execute();
-			if (sqlite_num_rows($stmt)==0)
+			if (BD::sqlite_num_rows($stmt)==0)
 			{
 				$insertion="insert into Individus(code_indiv,nom,prenom) values (:id,:nom,:prenom)";
 				$stmtInsertion=$this->prepare($insertion);
@@ -394,5 +394,16 @@ class BD
 			echo $e->getMessage();
 		}
 	}
+
+	public static function sqlite_num_rows($rows)
+	{
+		$res=0;
+		foreach($rows as $r)
+		{
+			$res=$res+1;
+		}
+		return $res;
+	}
+
 }
 ?>
