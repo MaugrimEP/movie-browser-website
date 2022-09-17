@@ -1,7 +1,9 @@
 <?php
 require_once('../data/require_once.php');
 $db=new BD($pathToDBFromUserInterface);
+
 $infosActeur=$db->getInfoPpl(simpleArray2String($_GET['acteurs']));
+
 $infosActeur=BD::getAttributFromSimpleRow($infosActeur);
 $films=$db->getFilmsByActeur(simpleArray2String($_GET['acteurs']));
 
@@ -21,20 +23,20 @@ function linkToFilm($string,$f)
 </head>
 <body>
   <header><?php headerShow();?></header>
-  <article>
     <h1>Films de <?php echo $infosActeur['prenom']; echo $infosActeur['nom']; ?></h1>
-    <table>
-      <tr><th>Titre original</th><th>Titre francais</th></tr>
-      <?php foreach ($films as $f)
-      {
-        echo "<tr><td> ";
-        echo linkToFilm($f['titre_original'],$f);
-        echo "</td>  <td>";
-        echo linkToFilm($f['titre_francais'],$f);
-        echo "</td></tr>";
+    <hr>
+		<section>
+      <?php foreach ($films as $f){      /* Ligne 31 remplacer lien par nom affiche film si BD*/
+		   echo "<a href='one_movie_one_page.php?idFilm=".$f['code_film']."'>
+				<div class = 'fiche_film' name = 'fiche_film'>
+					<div class = 'sous_fiche_film' name = 'sous_fiche_film'>
+						<img src = '../data/Image/lgdvg.jpg' alt = '' class = 'affiche' height = '400'/> 
+						<h2 class = 'titre_film'>".$f['titre_francais']."</h2>
+					</div>
+				</div>
+			</a>";
       }?>
-    </table>
-  </article>
+      </section>
   <?php importJavascriptShow() ?>
 </body>
 </html>

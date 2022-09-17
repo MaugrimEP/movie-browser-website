@@ -1,1 +1,57 @@
-azerty
+h1{
+	font : 50px New Century Schoolbook, serif;
+	margin-left : 1%;
+	color : white;
+}
+
+hr{
+	margin-bottom : 1%;
+	margin-top : 1%;
+	margin-right : 1%;
+	margin-left: 1%;
+	border-width: 1px;
+}
+
+section{
+	display : flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.fiche_film{
+	padding-left : 5%;
+	padding-right : 5%;
+	padding-top : 1em;
+	border : solid;
+	border-width : 1px;
+	transition : all 0.5s;
+}
+
+.fiche_film:hover{
+	transform : scale(1.05);
+	border-color: white;
+	background-color : #C3C3C2;
+}
+
+a{
+	text-decoration: none;
+	color : black;
+	margin-bottom : 2em;
+}
+
+.sous_fiche_film{
+	display : flex;
+	flex-direction: column;
+}
+
+.affiche{
+	margin-bottom: 1em;
+}
+
+.titre_film{
+	width : 300px;
+	height : 50%;
+	margin-top : 0;
+	font : 20px New Century Schoolbook, serif;
+	text-align: center;
+}
