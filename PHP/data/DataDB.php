@@ -3420,7 +3420,7 @@ $valuesActeurs9="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALU
 
 $dropClassification="DROP TABLE IF EXISTS `classification`";
 $creationClassification="CREATE TABLE IF NOT EXISTS `classification` (
-  `ref_code_film` int(11) DEFAULT NULL  PRIMARY KEY,
+  `ref_code_film` int(11) DEFAULT NULL,
   `ref_code_genre` int(11) DEFAULT NULL
 )";
 
