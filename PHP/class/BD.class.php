@@ -230,7 +230,7 @@ class BD
 
 	public function generateCode($table,$colonne){
 		try {
-			$stmt=$this->fdb->prepare("select max(?) as max from ?");
+			$stmt=$this->fdb->prepare("select max(?) max from ?");
 			$stmt->execute(array($colonne,$table));
 			$stmt=BD::getAttributFromSimpleRow($res);
 			return $stmt['max']+1;
