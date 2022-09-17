@@ -2,8 +2,7 @@
 variable par méthode GET : [idFilm=l'id du film] et action = <add|update> require_once('header.php')
 -->
 
-<?php require_once("../data/require_once.php");
-$co = new BD($pathToDBFromUserInterface); ?>
+<?php require_once('../data/require_once.php'); ?>
 
 <!doctype html>
 <html lang="fr">
@@ -11,7 +10,6 @@ $co = new BD($pathToDBFromUserInterface); ?>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="./css/add_update.css"/>
 		<link rel="stylesheet" href="./css/header.css"/>
-		<script type="text/javascript" src="./javascript/header.js"></script>
 		<title>Ajout d'un film</title>
 	</head>
 	<header>
@@ -71,55 +69,55 @@ $co = new BD($pathToDBFromUserInterface); ?>
 				<hr>
 				<input type='submit' id = "submitButton" value='Ajouter le film'>
 			</fieldset>
-		</form>
-		<script type="text/javascript">
-		
+
+			<script type="text/javascript">
+
 			var div = document.getElementById('list_acteurs');
 			var nb_acteurs = 1;
-			
+
 			function incrementNbActeurs(){
 				nb_acteurs++;
 			}
-			
+
 			function ajouterLigneActeur(nom){
 				incrementNbActeurs();
-				
+
 				var sous_div = document.createElement("div");
 				var case_prenom = document.createElement("input");
 				var case_nom = document.createElement("input");
 				var label_prenom = document.createElement("label");
 				var label_nom = document.createElement("label");
-				
+
 				sous_div.setAttribute("class", "case");
-				
+
 				case_prenom.name = nom;
 				case_prenom.type = "text";
 				case_prenom.id = "prenom_acteur"+nb_acteurs;
-				
+
 				case_nom.name = nom;
 				case_nom.type = "text";
 				case_nom.id = "nom_acteur"+nb_acteurs;
-				
+
 				label_prenom.setAttribute("for","prenom_acteur"+nb_acteurs);
 				label_prenom.innerHTML = "Prénom acteur";
-				
+
 				label_nom.setAttribute("for","prenom_acteur"+nb_acteurs);
 				label_nom.innerHTML = "Nom acteur";
-				
+
 				sous_div.appendChild(label_prenom);
 				sous_div.appendChild(case_prenom);
 				sous_div.appendChild(label_nom);
 				sous_div.appendChild(case_nom);
-				
+
 				div.appendChild(sous_div);
 			}
-			
+
 			function ajouterChamp(){
 				ajouterLigneActeur("acteurs[]");
 				div.appendChild(document.createElement("br"));
 			}
+
 			</script>
-			<?php importJavascriptShow() ?>
+		</form>
 	</body>
 </html>
-

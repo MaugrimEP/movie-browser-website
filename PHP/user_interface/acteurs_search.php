@@ -20,6 +20,7 @@ $Isubmit->name='submit';
 <html lang="fr">
 <head>
   <meta charset="utf-8">
+  		<link rel="stylesheet" href="./css/header.css"/>
   <title>Recherche Acteurs</title>
 </head>
 <body>

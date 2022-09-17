@@ -10,6 +10,7 @@ $films=$db->getFilmsByActeur(simpleArray2String($_GET['acteurs']));
 <!doctype html>
 <html lang="fr">
 <head>
+  <link rel="stylesheet" href="./css/header.css"/>
   <meta charset="utf-8">
   <title>resultat recherche</title>
 </head>

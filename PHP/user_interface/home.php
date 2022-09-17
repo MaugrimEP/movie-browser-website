@@ -8,6 +8,7 @@ $rows=$db->getTenFirstRows();
 <!doctype html>
 <html lang="fr">
 <head>
+  <link rel="stylesheet" href="./css/header.css"/>
   <meta charset="utf-8">
   <title>Accueil</title>
 </head>
