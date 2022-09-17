@@ -16,13 +16,11 @@ if (isset($_GET['deleting']))
 </head>
 <body>
   <header><?php headerShow();?></header>
-  <article>
-  <h2>Resultat de la recherche</h2>
+  <h1>Résultat de la recherche</h1>
   <?php
       $res=$co->getFastSearch($_GET['keyResearch']);
       displayFast($res);
   ?>
-  </article>
   <?php importJavascriptShow() ?>
 </body>
 </html>

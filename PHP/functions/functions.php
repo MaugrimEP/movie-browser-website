@@ -3,14 +3,16 @@ require_once("../data/require_once.php");
 
 function displayFast($res)
 {
-  echo "<table >\n";
-  echo "<tr><th> Titre original </th> <th> Titre francais </th> <th> Date </th> <th> Durée </th> <th>nom Réalisateur </td><th> prénom Realisateur </th> <th> Pays </th></tr>\n";
+  echo "<div class = 'ligne'><div class = 'titre_o'>Titre original</div> <div class = 'titre_f'>Titre francais</div> <div class = 'date'>Date</div> <div class = 'duree'>Durée</div> <div class = 'realisateur'> Réalisateur </div> <div class = 'pays'>Pays</div></div>\n";
   foreach($res as $r)
   {
-    echo "<tr>\n";
-    echo "<td><a href='one_movie_one_page.php?idFilm=$r[code_film]'> $r[titre_original] </a></td>
-    <td><a href='one_movie_one_page.php?idFilm=$r[code_film]'> $r[titre_francais] </a></td>
-    <td> $r[date] </td> <td> $r[duree] </td> <td> $r[nom]</td><td> $r[prenom]</td> <td> $r[pays]</td>
+    echo "<a href='one_movie_one_page.php?idFilm=$r[code_film]'><div class = 'titre_o'> $r[titre_original] </div></a>
+    <a href='one_movie_one_page.php?idFilm=$r[code_film]'><div class = 'titre_f'> $r[titre_francais] </div></a>
+    <td> $r[date] </td>
+    <td> $r[duree] </td>
+    <td> $r[nom]</td>
+    <td> $r[prenom]</td>
+    <td> $r[pays]</td>
     <td><a href='add_update.php?idFilm=$r[code_film]&action=update'> Modifier</a> </td>
     <form method='GET' action='display_fast_research.php'>
     <td><input type='hidden' name='idFilm' value='$r[code_film]'/>
@@ -18,7 +20,7 @@ function displayFast($res)
     <input type='hidden' name='keyResearch' value='$_GET[keyResearch]'/>
     <input type='submit' value='Supprimer'> </td>
     </form>\n";
-    echo "</tr>\n";
+    echo "</tr><hr>\n";
   }
   echo "</table>\n";
 }

@@ -15,25 +15,26 @@ function linkToFilm($string,$f)
 <html lang="fr">
 <head>
   <link rel="stylesheet" href="./css/header.css"/>
+  <link rel="stylesheet" href="./css/display_films_by_acteurs.css"/>
   <meta charset="utf-8">
   <title>resultat recherche</title>
 </head>
 <body>
   <header><?php headerShow();?></header>
-  <article>
-    <h2>La liste des films fait par le réalisateur <?php echo $infosRealisteur['nom'];echo $infosRealisteur['prenom'];?></h2>
-    <table>
-      <tr><th>Titre original</th><th>Titre francais</th></tr>
-      <?php foreach ($films as $f)
-      {
-        echo "<tr><td> ";
-        echo linkToFilm($f['titre_original'],$f);
-        echo "</td>  <td>";
-        echo linkToFilm($f['titre_francais'],$f);
-        echo "</td></tr>";
+    <h1>Films du réalisateur <?php echo $infosRealisteur['nom'];echo $infosRealisteur['prenom'];?></h1>
+    <hr>
+    <section>
+      <?php foreach ($films as $f){      /* Ligne 31 remplacer lien par nom affiche film si BD*/
+		   echo "<a href='one_movie_one_page.php?idFilm=".$f['code_film']."'>
+				<div class = 'fiche_film' name = 'fiche_film'>
+					<div class = 'sous_fiche_film' name = 'sous_fiche_film'>
+						<img src = '../data/Image/lgdvg.jpg' alt = '' class = 'affiche' height = '400'/> 
+						<h2 class = 'titre_film'>".$f['titre_francais']."</h2>
+					</div>
+				</div>
+			</a>";
       }?>
-    </table>
-  </article>
+      </section>
   <?php importJavascriptShow() ?>
 </body>
 </html>
