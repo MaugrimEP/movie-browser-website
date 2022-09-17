@@ -33,7 +33,7 @@ class BD
 				$this->fdb->exec($i);
 			}
   	}
-
+  	
 		catch (PDOException $e)
 		{
 			echo $e->getMessage();
