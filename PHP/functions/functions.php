@@ -3,26 +3,33 @@ require_once("../data/require_once.php");
 
 function displayFast($res)
 {
-  echo "<div class = 'ligne'><div class = 'titre_o'>Titre original</div> <div class = 'titre_f'>Titre francais</div> <div class = 'date'>Date</div> <div class = 'duree'>Durée</div> <div class = 'realisateur'> Réalisateur </div> <div class = 'pays'>Pays</div></div>\n";
+  echo "<div class = 'ligne'><div id = 'titre_o' class = 'titre_o'>Titre original</div> <div id = 'titre_f' class = 'titre_f'>Titre francais</div> <div id = 'date' class = 'date'>Date</div> <div id = 'duree' class = 'duree'>Durée</div> <div id = 'realisateur' class = 'realisateur'> Réalisateur </div> <div id = 'pays' class = 'pays'>Pays</div></div>\n";
+  echo "<hr>\n";
   foreach($res as $r)
   {
-    echo "<a href='one_movie_one_page.php?idFilm=$r[code_film]'><div class = 'titre_o'> $r[titre_original] </div></a>
-    <a href='one_movie_one_page.php?idFilm=$r[code_film]'><div class = 'titre_f'> $r[titre_francais] </div></a>
-    <td> $r[date] </td>
-    <td> $r[duree] </td>
-    <td> $r[nom]</td>
-    <td> $r[prenom]</td>
-    <td> $r[pays]</td>
-    <td><a href='add_update.php?idFilm=$r[code_film]&action=update'> Modifier</a> </td>
-    <form method='GET' action='display_fast_research.php'>
-    <td><input type='hidden' name='idFilm' value='$r[code_film]'/>
-    <input type='hidden' name='deleting' value='true'/>
-    <input type='hidden' name='keyResearch' value='$_GET[keyResearch]'/>
-    <input type='submit' value='Supprimer'> </td>
-    </form>\n";
-    echo "</tr><hr>\n";
+    echo "<div class = 'ligne ligne_lien'>
+			<a href='one_movie_one_page.php?idFilm=$r[code_film]' class = 'lien_vers_film'>
+				<div class = 'infos'>
+					<div class = 'titre_o'> $r[titre_original] </div>
+					<div class = 'titre_f'> $r[titre_francais] </div>
+					<div class = 'date'> $r[date] </div>
+					<div class = 'duree'> $r[duree] </div>
+					<div class = 'realisateur'> $r[prenom] $r[nom]</div>
+					<div class = 'pays'> $r[pays]</div>
+				</div>
+			</a>
+			<div class = 'modif_delete'>
+				<a href='add_update.php?idFilm=$r[code_film]&action=update'><div class = 'button_modify'></div></a>
+				<form id = 'form_delete' method='GET' action='display_fast_research.php'>
+					<input type='hidden' name='idFilm' value='$r[code_film]'/>
+					<input type='hidden' name='deleting' value='true'/>
+					<input type='hidden' name='keyResearch' value='$_GET[keyResearch]'/>
+					<input class = 'button_delete' type='submit' value=''>
+				</form>
+			</div>
+		</div>
+		<hr>\n";
   }
-  echo "</table>\n";
 }
 
 

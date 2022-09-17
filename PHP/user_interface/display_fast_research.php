@@ -11,12 +11,14 @@ if (isset($_GET['deleting']))
 <html lang="fr">
 <head>
 	<link rel="stylesheet" href="./css/header.css"/>
+	<link rel="stylesheet" href="./css/display_fast_research.css"/>
   <meta charset="utf-8">
   <title>Recherche Rapide</title>
 </head>
 <body>
   <header><?php headerShow();?></header>
   <h1>Résultat de la recherche</h1>
+  <hr>
   <?php
       $res=$co->getFastSearch($_GET['keyResearch']);
       displayFast($res);
