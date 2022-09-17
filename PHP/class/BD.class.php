@@ -248,7 +248,7 @@ class BD
 		set_time_limit(0);
 		try
 		{
-			$res=$this->fdb->query("select * from acteurs natural join Individus on (acteurs.ref_code_acteur=individus.code_indiv)");
+			$res=$this->fdb->query("select * from acteurs inner join Individus on (acteurs.ref_code_acteur=individus.code_indiv)");
 			return $res;
 		}
 		catch(PDOException $e)
