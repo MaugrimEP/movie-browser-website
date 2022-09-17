@@ -12,10 +12,18 @@ class Text extends Question
 
 	public function affiche()
 	{
-		echo "$this->description <br><input type=\"$this->type\" name=\"$this->name[]\"><br>\n" ;
+		if (isset($this->cssClass))
+		{
+			echo "<div class='$this->cssClass'>";
+		}
+		echo "<label>$this->description</label><input type=\"$this->type\" name=\"$this->name[]\"><br>\n" ;
+		if (isset($this->cssClass))
+		{
+			echo "</div>";
+		}
 		echo "\n";
 	}
-	
+
 }
 
 ?>

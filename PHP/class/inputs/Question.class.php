@@ -14,5 +14,12 @@ abstract class Question
 	}
 
 	public abstract function affiche();
+
+	public function setClass($class)
+	{
+		$this->cssClass=$class;
+	}
 }
+
+
 ?>

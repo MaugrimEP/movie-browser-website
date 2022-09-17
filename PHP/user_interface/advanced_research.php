@@ -56,6 +56,10 @@ $inputs=array(
   $Isubmit
 );
 
+foreach($inputs as $i)
+{
+  $i->setClass("case");
+}
 
 function advandedResearch($inputs)
 {
