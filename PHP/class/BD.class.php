@@ -257,7 +257,7 @@ class BD
 		}
 	}
 
-	public function getInfoActeur($a)
+	public function getInfoPpl($a)
 	{
 		$q="select * from individus where code_indiv=?";
 		try
@@ -289,5 +289,21 @@ class BD
 		}
 	}
 
+	public function getFilmsByRealisteur($realisteur)
+	{
+			$q="select distinct code_film,titre_original, titre_francais
+			from Films
+			where realisateur=?";
+			try
+			{
+				$stmt=$this->fdb->prepare($q);
+				$stmt->execute(array($realisteur));
+				return $stmt;
+			}
+			catch(PDOException $e)
+			{
+				echo $e->getMessage();
+			}
+	}
 }
 ?>

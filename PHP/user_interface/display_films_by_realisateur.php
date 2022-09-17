@@ -1,9 +1,9 @@
 <?php
 require_once('../data/require_once.php');
 $db=new BD($pathToDBFromUserInterface);
-$infosActeur=$db->getInfoPpl(simpleArray2String($_GET['acteurs']));
-$infosActeur=BD::getAttributFromSimpleRow($infosActeur);
-$films=$db->getFilmsByActeur(simpleArray2String($_GET['acteurs']));
+$infosRealisteur=$db->getInfoPpl(simpleArray2String($_GET['realisateur']));
+$infosRealisteur=BD::getAttributFromSimpleRow($infosRealisteur);
+$films=$db->getFilmsByRealisteur(simpleArray2String($_GET['realisateur']));
 
 function linkToFilm($string,$f)
 {
@@ -21,7 +21,7 @@ function linkToFilm($string,$f)
 <body>
   <header><?php headerShow();?></header>
   <article>
-    <h2>La liste des films fait par l'acteur <?php echo $infosActeur['nom'];echo $infosActeur['prenom'];?></h2>
+    <h2>La liste des films fait par le réalisateur <?php echo $infosRealisteur['nom'];echo $infosRealisteur['prenom'];?></h2>
     <table>
       <tr><th>Titre original</th><th>Titre francais</th></tr>
       <?php foreach ($films as $f)

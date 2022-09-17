@@ -38,8 +38,8 @@ $genres=$db->getGenresbyFilms($_GET['idFilm']);
 						<td> $film[couleur]</td>
 					</tr>
 					<tr>
-						<td> Réalisateur </td>
-						<td> $film[nom] $film[prenom]</td>
+						<td>Réalisateur </td>
+						<td><a href='display_films_by_realisateur.php?realisateur[]=$film[realisateur]'>  $film[nom] $film[prenom]</a></td>
 					</tr>
 				</table>";
 	}
