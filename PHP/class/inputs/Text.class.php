@@ -16,12 +16,12 @@ class Text extends Question
 		{
 			echo "<div class='$this->cssClass'>";
 		}
-		echo "<label>$this->description</label><input type=\"$this->type\" name=\"$this->name[]\"><br>\n" ;
+		echo "<label>$this->description</label><input type=\"$this->type\" name=\"$this->name[]\">\n" ;
 		if (isset($this->cssClass))
 		{
 			echo "</div>";
 		}
-		echo "\n";
+		echo "<br>\n";
 	}
 
 }

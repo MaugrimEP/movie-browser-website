@@ -26,13 +26,13 @@ class Select extends Question
 			echo "<option value=\"".$this->values[$i]."\">".$this->description_case[$i]." </option>\n";
 		}
 
-		echo "</select><br>\n";
+		echo "</select>\n";
 
 		if (isset($this->cssClass))
 		{
 			echo "</div>";
 		}
-		echo "\n";
+		echo "<br>\n";
 	}
 }
 ?>

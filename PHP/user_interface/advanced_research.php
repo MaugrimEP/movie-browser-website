@@ -44,6 +44,7 @@ $Igenres->name='genres';
 
 $Isubmit=new Submit('rechercher !','GO');
 $Isubmit->name='submit';
+$Isubmit->setClass("submitButton");
 
 $inputs=array(
   $Ititre_original,
@@ -53,7 +54,6 @@ $inputs=array(
   $IrealisateurP,
   $Iduree,
   $Igenres,
-  $Isubmit
 );
 
 foreach($inputs as $i)
@@ -61,11 +61,15 @@ foreach($inputs as $i)
   $i->setClass("case");
 }
 
+$inputs[] = $Isubmit;
+
 function advandedResearch($inputs)
 {
   ?>
   <form method='get' action='display_advanced_research.php'>
+	  <fieldset>
   <?php displayInputs($inputs); ?>
+	  </fieldset>
   </form>
 <?php
 

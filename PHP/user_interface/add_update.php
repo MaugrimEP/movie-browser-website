@@ -12,10 +12,10 @@ variable par méthode GET : [idFilm=l'id du film] et action = <add|update> requi
 		<link rel="stylesheet" href="./css/header.css"/>
 		<title>Ajout d'un film</title>
 	</head>
+	<body>
 	<header>
 			<?php headerShow() ?>
 		</header>
-	<body>
 		<?php if ($_GET['action']=="add"){
 			echo "<h1>Ajouter un film</h1>";
 		}

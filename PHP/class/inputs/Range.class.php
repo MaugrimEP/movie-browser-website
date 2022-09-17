@@ -28,12 +28,12 @@ class Range extends Question
 			echo "<div class='$this->cssClass'>";
 		}
 		echo "<label>$this->description</label><input type=\"$this->type\" name=\"$this->name[]\" value=\"$this->value\" max=\"$this->max\" min=\"$this->min\" step=\"$this->step\" onchange=\"rangevalue.value=value\">
-		<output id=\"rangevalue\">0</output> $this->char <br>\n" ;
+		<output id=\"rangevalue\">0</output> $this->char \n" ;
 		if (isset($this->cssClass))
 		{
 			echo "</div>";
 		}
-		echo "\n";
+		echo "<br>\n";
 
 	}
 }
