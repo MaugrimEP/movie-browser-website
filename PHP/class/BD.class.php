@@ -210,7 +210,7 @@ class BD
  		try
  		{
 			$stmt=$this->fdb->prepare($exe);
-			$stmt->bindParam(':code_f',$this->generateMovieCode());
+			$stmt->bindParam(':code_f',$this->generateMovieCode('films','code_film'));
 			$stmt->bindParam(':to',$to);
 			$stmt->bindParam(':tf',$tt);
 			$stmt->bindParam(':pays',$pays);
