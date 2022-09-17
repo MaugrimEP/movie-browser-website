@@ -226,5 +226,22 @@ class BD
 		}
 	}
 
+	public function getFilmsByActeur($idActeur)
+	{
+		$q="select titre_original, titre_francais
+		from Films inner join Acteurs on (Films.code_film=Acteurs.ref_code_film)
+		where ref_code_acteur=?";
+		try
+		{
+			$stmt=$this->fdb->prepare($q);
+			$stmt->execute(array($idActeur));
+			return $stmt;
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+	}
+
 }
 ?>
