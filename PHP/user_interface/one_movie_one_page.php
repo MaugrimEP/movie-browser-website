@@ -9,54 +9,60 @@ $genres=$db->getGenresbyFilms($_GET['idFilm']);
 		$db=new BD('../class/base_stock/database');
 			$film=$db->getInfoFilm($code_f);
 			$film=BD::getAttributFromSimpleRow($film);
-			echo "<h2> $film[titre_francais]</h2>\n";
-			echo "<h3>($film[titre_original]) </h3>\n";
-			echo '<img src="../data/Image/test.jpg" alt="'.$film['titre_original'].'"/><br>';
-			echo "<table class='pure-table'>
-					<tr>
-						<td> Titre Original </td>
-						<td> $film[titre_original]</td>
-					</tr>
-					<tr>
-						<td> Titre Français </td>
-						<td> $film[titre_francais] </td>
-					</tr>
-					<tr>
-						<td> Origine </td>
-						<td> $film[pays]</td>
-					</tr>
-					<tr>
-						<td> Date de Sortie </td>
-						<td> $film[date]</td>
-					</tr>
-					<tr>
-						<td> Durée du film </td>
-						<td> $film[duree] </td>
-					</tr>
-					<tr>
-						<td> Type d'image </td>
-						<td> $film[couleur]</td>
-					</tr>
-					<tr>
-						<td>Réalisateur </td>
-						<td><a href='display_films_by_realisateur.php?realisateur[]=$film[realisateur]'>  $film[nom] $film[prenom]</a></td>
-					</tr>
-				</table>";
+			
+			echo "<h2> $film[titre_francais]</h2>";
+			echo "<hr>";
+			echo "<section>";
+			echo '<img src="../data/Image/lgdvg.jpg" alt="'.$film['titre_original'].'" width = "600"/>';
+			echo "<div id = 'info'>
+					<div id = 'bloc1'>
+						<div class = 'ligne'>
+							<label>Titre Original : </label> $film[titre_original]
+						</div>
+						
+						<div class = 'ligne'>	
+							<label>Titre Français : </label> $film[titre_francais]
+						</div>
+						
+						<div class = 'ligne'>	
+							<label>Origine : </label> $film[pays]
+						</div>
+						
+						<div class = 'ligne'>	
+							<label>Date de Sortie : </label> $film[date]
+						</div>
+						
+						<div class = 'ligne'>	
+							<label>Durée du film : </label> $film[duree]
+						</div>
+						
+						<div class = 'ligne'>	
+							<label>Type d'image : </label> $film[couleur]
+						</div>
+						
+						<div class = 'ligne'>	
+							<label>Réalisateur : </label>
+							<a class = 'lien_individu' href='display_films_by_realisateur.php?realisateur[]=$film[realisateur]'>  $film[nom] $film[prenom]</a>
+						</div>
+					</div>";
 	}
 ?>
 <!doctype html>
 <html lang="fr">
 <head>
 	<link rel="stylesheet" href="./css/header.css"/>
+	<link rel="stylesheet" href="./css/one_movie_one_page.css"/>
   <meta charset="utf-8">
   <title>Film</title>
 </head>
 <body>
   <header><?php headerShow();?></header>
-  <article>
-	<?php creationPageFilm($_GET['idFilm']);
+	<?creationPageFilm($_GET['idFilm']);
 	displayActeurs($acteurs);
 	displayGenres($genres);?>
-  </article>
+	</div>
+	</section>
+  <?php importJavascriptShow() ?>
 </body>
 </html>
+

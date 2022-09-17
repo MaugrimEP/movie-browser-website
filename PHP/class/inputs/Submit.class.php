@@ -11,7 +11,7 @@ class Submit extends Question
 
 	public function affiche()
 	{
-		echo "$this->description <br><input type=\"$this->type\" name=\"$this->name[]\" value=\"$this->value\"><br>\n" ;
+		echo "<input type=\"$this->type\" name=\"$this->name[]\" value=\"$this->value\"><br>\n" ;
 		echo "\n";
 	}
 }

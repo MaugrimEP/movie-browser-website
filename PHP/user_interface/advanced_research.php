@@ -2,32 +2,32 @@
 require_once('../data/require_once.php');
 
 $db=new BD($pathToDBFromUserInterface);
-$Ititre_original=new Text("titre Original: ");
+$Ititre_original=new Text("Titre Original: ");
 $Ititre_original->name='titre_O';
 
-$Ititre_francais=new Text("titre francais: ");
+$Ititre_francais=new Text("Titre francais: ");
 $Ititre_francais->name='titre_F';
 
 //select $description,$descriptionpourChaque,$values
     $arrayDescriptionPays=Rows2Array($db->getPays(),'pays');
     $arrayPays=$arrayDescriptionPays;
     $arrayPays[]="";
-    $arrayDescriptionPays[]="Non spécifier";
+    $arrayDescriptionPays[]="Non spécifié";
 
     $arrayPays=array_reverse($arrayPays);
     $arrayDescriptionPays=array_reverse($arrayDescriptionPays);
 
-$Ipays=new Select("pays",$arrayDescriptionPays,$arrayPays);
+$Ipays=new Select("Origine",$arrayDescriptionPays,$arrayPays);
 $Ipays->name='pays';
 
-$IrealisateurN=new Text("nom realisateur: ");
+$IrealisateurN=new Text("Nom réalisateur: ");
 $IrealisateurN->name='nomR';
 
-$IrealisateurP=new Text("prenom realistaur: ");
+$IrealisateurP=new Text("Prénom réalisateur: ");
 $IrealisateurP->name='prenomR';
 
 //range ($d,$mi,$ma,$s)
-$Iduree=new Range("durée minimal",0,$db->dureeMax(),1,'minutes');
+$Iduree=new Range("Durée minimale",0,$db->dureeMax(),1,'minutes');
 $Iduree->name='duree';
 
 
@@ -35,11 +35,11 @@ $Iduree->name='duree';
     $arrayDescriptionGenres=Rows2Array($db->getGenres(),'nom_genre');
     $arrayGenres=$arrayDescriptionGenres;
     $arrayGenres[]="NNDEF";
-    $arrayDescriptionGenres[]="Non spécifier";
+    $arrayDescriptionGenres[]="Non spécifié";
 
     $arrayGenres=array_reverse($arrayGenres);
     $arrayDescriptionGenres=array_reverse($arrayDescriptionGenres);
-$Igenres=new Select ("genre du film",$arrayDescriptionGenres,$arrayGenres);
+$Igenres=new Select ("Genre",$arrayDescriptionGenres,$arrayGenres);
 $Igenres->name='genres';
 
 $Isubmit=new Submit('rechercher !','GO');
@@ -78,11 +78,9 @@ function advandedResearch($inputs)
 </head>
 <body>
   <header><?php headerShow(); ?></header>
-  <article>
   <h1>Recherche Avancée</h1>
   <hr>
   <?php  advandedResearch($inputs) ?>
-  </article>
   <?php importJavascriptShow() ?>
 </body>
 </html>

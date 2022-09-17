@@ -1,6 +1,5 @@
-<?
-require_once('../data/require_once.php');
-
+<?php
+require_once("../data/require_once.php");
 
 function displayFast($res)
 {
@@ -73,15 +72,17 @@ function simpleArray2String($a)
 
 function displayActeurs($res)
 {
-  echo "<h3>Liste des Acteurs :</h3>\n";
+  echo "<div id = 'bloc2'>";
+  echo "<h3>Acteur(s) : </h3>\n";
   echo "<ul>";
   foreach($res as $a)
   {
     echo "<li>";
-    echo "<a href='display_films_by_acteurs.php?acteurs[]=$a[code_indiv]'>$a[nom] $a[prenom]</a><br>";
-    echo "</li>\n";
+    echo "<a class = 'lien_individu' href='display_films_by_acteurs.php?acteurs[]=$a[code_indiv]'>$a[nom] $a[prenom]</a>";
+    echo "</li>";
   }
   echo "</ul>";
+  echo "</div>";
 }
 
 
@@ -107,7 +108,8 @@ function ActeursRowType2ArrayID($rows)
 
 function displayGenres($res)
 {
-  echo "<h3>Liste des Genres :</h3>\n";
+  echo "<div id = 'bloc3'>";
+  echo "<h3>Genre(s) :</h3>\n";
   echo "<ul>";
   foreach($res as $g)
   {
@@ -116,6 +118,7 @@ function displayGenres($res)
     echo "</li>\n";
   }
   echo "</ul>";
+  echo "</div>";
 }
 
 ?>
