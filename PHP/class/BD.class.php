@@ -188,7 +188,7 @@ class BD
 
 	public function getActeurbyFilms($idF)
 	{
-		$q="select distinct nom,prenom
+		$q="select distinct code_indiv,nom,prenom
 		from Films inner join Acteurs on (Films.code_film=Acteurs.ref_code_film) inner join Individus on (Acteurs.ref_code_acteur=Individus.code_indiv)
 		where code_film=?";
 		try

@@ -73,7 +73,7 @@ function displayActeurs($res)
   foreach($res as $a)
   {
     echo "<li>";
-    echo "$a[nom] $a[prenom]<br>";
+    echo "<a href='display_films_by_acteurs.php?acteurs[]=$a[code_indiv]'>$a[nom] $a[prenom]</a><br>";
     echo "</li>\n";
   }
   echo "</ul>";
