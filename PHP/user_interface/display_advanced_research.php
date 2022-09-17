@@ -13,7 +13,7 @@ if (isset($_GET['deleting']))
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Recherche</title>
+  <title>Recherche Avancée</title>
 </head>
 <body>
   <header><?php headerShow();?></header>
