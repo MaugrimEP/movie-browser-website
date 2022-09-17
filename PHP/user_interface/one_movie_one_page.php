@@ -42,6 +42,10 @@ $acteurs=$db->getActeurbyFilms($_GET['idFilm']);
 						<td> Réalisateur </td>
 						<td> $film[nom] $film[prenom]</td>
 					</tr>
+					<tr>
+						<td> Genre </td>
+						<td> $film[nom_genre]</td>
+					</tr>
 				</table>";
 	}
 ?>

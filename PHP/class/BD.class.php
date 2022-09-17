@@ -61,13 +61,17 @@ class BD
 
 	public function getInfoFilm($id)
 	{
-		try {
+		try
+		{
 			set_time_limit(0);
-			$re=$this->fdb->query("select *
-			from Films inner join Individus on (Films.realisateur=Individus.code_indiv)
-			 where code_film=".$id);
-			return $re;
-		} catch (PDOException $e) {
+			$q="select *
+			from Films inner join Individus on (Films.realisateur=Individus.code_indiv) inner join Classification on (Films.code_film=Classification.ref_code_film) inner join Genres on (Classification.ref_code_genre=Genres.code_genre)
+			where code_film= ?";
+			$stmt=$this->fdb->prepare($q);
+			$stmt->execute(array($id));
+			return $stmt;
+		}
+		catch (PDOException $e) {
 				echo $e->getMessage();
 		}
 	}
