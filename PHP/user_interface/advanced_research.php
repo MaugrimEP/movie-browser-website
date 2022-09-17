@@ -79,7 +79,7 @@ function advandedResearch($inputs)
 <!doctype html>
 <html lang="fr">
 <head>
-  <link rel="stylesheet" href="./css/add_update.css"/>
+  <link rel="stylesheet" href="./css/advanced_research.css"/>
   <link rel="stylesheet" href="./css/header.css"/>
   <meta charset="utf-8">
   <title>Recherche avancé</title>
