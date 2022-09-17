@@ -1,5 +1,5 @@
 <?php
-$valuesFilms="INSERT INTO `films` (`code_film`, `titre_original`, `titre_francais`, `pays`, `date`, `duree`, `couleur`, `realisateur`, `image`) VALUES
+$valuesFilms1="INSERT INTO `films` (`code_film`, `titre_original`, `titre_francais`, `pays`, `date`, `duree`, `couleur`, `realisateur`, `image`) VALUES
 $dropFilms="drop table if exists films";
 
 $creationFilms="CREATE TABLE IF NOT EXISTS `films` (
@@ -573,7 +573,7 @@ INSERT INTO `films` (`code_film`, `titre_original`, `titre_francais`, `pays`, `d
 (565, 'You Only Live Once                                ', 'J''ai le droit de vivre                            ', 'USA                 ', 1937, 86, 'NB        ', 43, 'droit_vivre.jpeg    '),
 (568, 'Topaz                                             ', 'Etau (L'')                                         ', 'USA                 ', 1969, 127, 'couleur   ', 26, 'etau.jpeg           ')";
 
-$valuesActeurs="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALUES
+$valuesActeurs1="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALUES
 $dropActeurs="drop table if exists acteurs";
 $creationActeurs="CREATE TABLE IF NOT EXISTS `acteurs` (
   `ref_code_film` int(11) DEFAULT NULL,
@@ -3418,7 +3418,6 @@ $valuesActeurs9="INSERT INTO `acteurs` (`ref_code_film`, `ref_code_acteur`) VALU
 (568, 530),
 (568, 41),
 (568, 891),
-(518, 413);";
 (518, 413)";
 
 $dropClassification="DROP TABLE IF EXISTS `classification`";
