@@ -40,10 +40,6 @@ $acteurs=$db->getActeurbyFilms($_GET['idFilm']);
 						<td> Réalisateur </td>
 						<td> $film[nom] $film[prenom]</td>
 					</tr></thread>
-					<thread><tr>
-						<td> Genre </td>
-						<td> $film[nom_genre]</td>
-					</tr></thread>
 				</table>";
 	}
 ?>
