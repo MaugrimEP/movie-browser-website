@@ -18,7 +18,14 @@ $Ititre_francais->name='titre_F';
 
 //select $description,$descriptionpourChaque,$values
     $arrayDescriptionPays=paysRows2Array($db->getPays());
-$Ipays=new Select("pays",$arrayDescriptionPays,$arrayDescriptionPays);
+    $arrayPays=$arrayDescriptionPays;
+    $arrayPays[]="";
+    $arrayDescriptionPays[]="Non spécifier";
+
+    $arrayPays=array_reverse($arrayPays);
+    $arrayDescriptionPays=array_reverse($arrayDescriptionPays);
+
+$Ipays=new Select("pays",$arrayDescriptionPays,$arrayPays);
 $Ipays->name='pays';
 
 $IrealisateurN=new Text("nom realisateur: ");
