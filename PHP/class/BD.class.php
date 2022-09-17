@@ -68,10 +68,9 @@ class BD
 		{
 			set_time_limit(0);
 			$re=$this->fdb->query("select *
-			from Films
+			from Films inner join Individus on (Films.realisateur=Individus.code_indiv)
 			where titre_original like '%$key%' or titre_francais like '%$key%'
-			order by titre_original
-			");
+			order by titre_original");
 			return $re;
 		}
 		catch (PDOException $e)
@@ -83,7 +82,9 @@ class BD
 	{
 		try {
 			set_time_limit(0);
-			$re=$this->fdb->query("select * from Films where code_film=".$id);
+			$re=$this->fdb->query("select *
+			from Films
+			 where code_film=".$id);
 			return $re;
 		} catch (PDOException $e) {
 				echo $e->getMessage();
