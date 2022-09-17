@@ -1,10 +1,6 @@
 <?
-require_once('../class/inputs/Text.class.php');
-require_once('../class/inputs/CheckBox.class.php');
-require_once('../class/inputs/Radio.class.php');
-require_once('../class/inputs/Range.class.php');
-require_once('../class/inputs/Select.class.php');
-require_once('../functions/functions.php');
+require_once('../data/require_once.php');
+
 
 function displayFast($res)
 {
@@ -81,6 +77,16 @@ function displayActeurs($res)
     echo "</li>\n";
   }
   echo "</ul>";
+}
+
+function ActeursRowType2Array($rows)
+{
+  $res=array();
+  foreach($rows as $a)
+  {
+    $res[]=$a['nom']." ".$a['prenom'];
+  }
+  return $res;
 }
 
 ?>
