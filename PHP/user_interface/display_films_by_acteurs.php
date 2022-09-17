@@ -15,13 +15,14 @@ function linkToFilm($string,$f)
 <html lang="fr">
 <head>
   <link rel="stylesheet" href="./css/header.css"/>
+  <link rel="stylesheet" href="./css/display_films_by_acteurs.css"/>
   <meta charset="utf-8">
   <title>resultat recherche</title>
 </head>
 <body>
   <header><?php headerShow();?></header>
   <article>
-    <h2>La liste des films fait par l'acteur <?php echo $infosActeur['nom'];echo $infosActeur['prenom'];?></h2>
+    <h1>Films de <?php echo $infosActeur['prenom']; echo $infosActeur['nom']; ?></h1>
     <table>
       <tr><th>Titre original</th><th>Titre francais</th></tr>
       <?php foreach ($films as $f)

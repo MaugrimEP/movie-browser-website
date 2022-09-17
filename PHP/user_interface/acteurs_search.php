@@ -8,12 +8,8 @@ $co=new BD($pathToDBFromUserInterface);
     $arrayDescriptionActeurs=ActeursRowType2Array($co->getActeurs());
     $arrayActeurs=ActeursRowType2ArrayID($co->getActeurs());
 
-$Iacteurs=new Select("acteurs",$arrayDescriptionActeurs,$arrayActeurs);
-$Iacteurs->name='acteurs';
-
-$Isubmit=new Submit('rechercher !','GO');
+$Isubmit=new Submit('rechercher !','Chercher');
 $Isubmit->name='submit';
-
 ?>
 
 <!doctype html>
@@ -21,19 +17,24 @@ $Isubmit->name='submit';
 <head>
   <meta charset="utf-8">
   		<link rel="stylesheet" href="./css/header.css"/>
+  		<link rel="stylesheet" href="./css/acteurs_search.css"/>
   <title>Recherche Acteurs</title>
 </head>
 <body>
   <header><?php headerShow();?></header>
-  <article>
-  <h2>Rechecher les films qu'on fait un acteurs</h2>
+  <h1>Rechercher les films d'un acteur</h1>
+  <hr>
   <form method="get" action="display_films_by_acteurs.php">
+	  <label> Acteur : </label>
+	  <select name = "acteurs[]" id = "acteurs[]">
   <?php
-      $Iacteurs->affiche();
-      $Isubmit->affiche();
+      for ($i = 0; $i < count($arrayActeurs); $i++){
+		  echo "<option value='".$arrayActeurs[$i]."'>".$arrayDescriptionActeurs[$i]." </option>\n";
+	  }
   ?>
-</form>
-  </article>
+	  </select><br>
+	  <input id = 'submitButton' type="submit" value="Chercher">
+  </form>
   <?php importJavascriptShow() ?>
 </body>
 </html>
