@@ -165,26 +165,6 @@ class BD
 
 	}
 
-	public function test()
-	{
-				set_time_limit(0);
-				$q="SELECT *
-				from Films
-				where titre_original like ?";
-				try
-				{
-					$nom='a';
-					$stmt=$this->fdb->prepare($q);
-					// $stmt->execute(array('%'.$nom.'%'));
-					$stmt->execute(array(BD::toStmt($nom)));
-					return $stmt;
-				}
-				catch(PDOException $e)
-				{
-					echo $e->getMessage();
-				}
-	}
-
 	public static function toStmt($key)
 	{
 		return '%'.$key.'%';
