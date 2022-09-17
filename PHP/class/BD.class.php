@@ -205,7 +205,7 @@ class BD
 
 	public function createMovie($to,$tf,$pays,$date,$duree,$couleur,$realisateur,$image){
 		$exe="INSERT INTO `films` (`code_film`, `titre_original`, `titre_francais`, `pays`, `date`, `duree`, `couleur`, `realisateur`, `image`)
-		 VALUES :code_f,:to,:tf,:pays,:d,:duree,:couleur,:realisateur,:image)";
+		 VALUES (:code_f,:to,:tf,:pays,:d,:duree,:couleur,:realisateur,:image)";
 		 set_time_limit(0);
  		try
  		{

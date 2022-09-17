@@ -19,6 +19,7 @@ header( "refresh:1000; url=one_movie_one_page.php?idFilm=$idFilm");
 <body>
   <header><?php headerShow();?></header>
 	<p>Le film a été ajouté avec succès. Veuillez patienter quelques secondes, vous allez être redirigé</p>
+	<p> <?php echo $db->generateCode('films','code_film') ?></p>
   <?php importJavascriptShow() ?>
 </body>
 </html>
