@@ -375,8 +375,8 @@ class BD
 			if (BD::sqlite_num_rows($stmt)==0)
 			{
 				$insertion="insert into Individus(code_indiv,nom,prenom) values (:id,:nom,:prenom)";
-				$stmtInsertion=$this->prepare($insertion);
-				$id=$this->fdb->generateCode('individus','code_indiv');
+				$stmtInsertion=$this->fdb->prepare($insertion);
+				$id=$this->generateCode('individus','code_indiv');
 				$stmtInsertion->bindParam(':id',$id);
 				$stmtInsertion->bindParam(':nom',$nom);
 				$stmtInsertion->bindParam(':prenom',$prenom);

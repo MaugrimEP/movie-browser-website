@@ -21,7 +21,7 @@ function linkToFilm($string,$f)
 </head>
 <body>
   <header><?php headerShow();?></header>
-    <h1>Films du réalisateur <?php echo $infosRealisteur['nom'];echo $infosRealisteur['prenom'];?></h1>
+    <h1>Films du réalisateur <?php echo $infosRealisteur['nom']; echo " "; echo $infosRealisteur['prenom'];?></h1>
     <hr>
     <section>
       <?php foreach ($films as $f){      /* Ligne 31 remplacer lien par nom affiche film si BD*/
