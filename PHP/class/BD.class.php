@@ -163,5 +163,10 @@ class BD
 		}
 	}
 
+	public function advancedSearch($titre_original,$titre_francais,$pays,$realisateur,$duree)
+	{
+		set_time_limit(0);
+	}
+
 }
 ?>
