@@ -52,7 +52,10 @@ $co = new BD($pathToDBFromUserInterface); ?>
 						}
 					?>
 				</select></div></br>
+<!--
 				<div class="case"><label for = "duree">Durée (minutes)</label><input required type="text" id = "duree" name="duree" title="Veuillez saisir la durée du film ici (en minutes)" value = "<?php if ($_GET['action']=="update"){echo $_GET['duree'];}?>"></div></br>
+-->
+				<div class="case"><label for = "duree">Durée (minutes)</label><input required type="range" name="duree" value="<?php if ($_GET['action']=="update"){echo $_GET['duree'];} else{echo "0";}?>" max="550" min="1" step="1" onchange="rangevalue.value=value"><output id="rangevalue"><?php if ($_GET['action']=="update"){echo $_GET['duree'];} else{echo "0";}?></output></div></br>
 				<div class="case"><label for = "prenom_realisateur">Prénom réalisteur</label><input required type="text" id = "prenom_realisateur" name="prenom_realisateur" title="Veuillez saisir le prénom du réalisateur du film ici"value = "<?php if ($_GET['action']=="update"){echo $_GET['prenomR'];}?>">
 				<label for = "nom_realisateur">Nom réalisteur</label><input required type="text" id = "nom_realisateur" name="nom_realisateur" title="Veuillez saisir le nom du réalisateur du film ici" value = "<?php if ($_GET['action']=="update"){echo $_GET['nomR'];}?>"></div></br>
 				<div class="case"><label for = "genre">Genre</label>
