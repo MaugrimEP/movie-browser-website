@@ -89,4 +89,14 @@ function ActeursRowType2Array($rows)
   return $res;
 }
 
+function ActeursRowType2ArrayID($rows)
+{
+  $res=array();
+  foreach($rows as $a)
+  {
+    $res[]=$a['ref_code_acteur'];
+  }
+  return $res;
+}
+
 ?>

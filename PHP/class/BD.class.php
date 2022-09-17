@@ -257,5 +257,20 @@ class BD
 		}
 	}
 
+	public function getInfoActeur($a)
+	{
+		$q="select * from individus where code_indiv=?";
+		try
+		{
+			$stmt=$this->fdb->prepare($q);
+			$stmt->execute(array($a));
+			return $stmt;
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+	}
+
 }
 ?>
