@@ -34,5 +34,6 @@ function linkToFilm($string,$f)
       }?>
     </table>
   </article>
+  <?php importJavascriptShow() ?>
 </body>
 </html>

@@ -81,5 +81,6 @@ function advandedResearch($inputs)
   <h2>Recherche Avancée</h2>
   <?php  advandedResearch($inputs) ?>
   </article>
+  <?php importJavascriptShow() ?>
 </body>
 </html>

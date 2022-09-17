@@ -59,5 +59,6 @@ if (isset($_GET['deleting']))
   echo "</table>\n";
   ?>
   </article>
+  <?php importJavascriptShow() ?>
 </body>
 </html>

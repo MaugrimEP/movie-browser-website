@@ -23,5 +23,6 @@ if (isset($_GET['deleting']))
       displayFast($res);
   ?>
   </article>
+  <?php importJavascriptShow() ?>
 </body>
 </html>

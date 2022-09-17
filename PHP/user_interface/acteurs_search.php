@@ -32,7 +32,8 @@ $Isubmit->name='submit';
       $Iacteurs->affiche();
       $Isubmit->affiche();
   ?>
-</from>
+</form>
   </article>
+  <?php importJavascriptShow() ?>
 </body>
 </html>

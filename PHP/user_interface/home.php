@@ -18,5 +18,6 @@ $rows=$db->getTenFirstRows();
   <h2>Les 10 derniers films en date</h2>
   <?php displayHome($rows);?>
   </article>
+  <?php importJavascriptShow() ?>
 </body>
 </html>

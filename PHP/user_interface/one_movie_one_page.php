@@ -58,5 +58,6 @@ $genres=$db->getGenresbyFilms($_GET['idFilm']);
 	displayActeurs($acteurs);
 	displayGenres($genres);?>
   </article>
+  <?php importJavascriptShow() ?>
 </body>
 </html>
